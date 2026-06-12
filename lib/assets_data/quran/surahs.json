@@ -1,0 +1,810 @@
+{
+ "source": {
+  "sourceName": "Tanzil Project — النص العثماني برواية حفص عن عاصم (عبر AlQuran Cloud)",
+  "authorOrScholar": null,
+  "reference": "quran-uthmani",
+  "sourceUrl": "https://tanzil.net",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "surahs": [
+  {
+   "number": 1,
+   "nameArabic": "سُورَةُ ٱلْفَاتِحَةِ",
+   "nameTransliteration": "Al-Faatiha",
+   "ayahCount": 7,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 2,
+   "nameArabic": "سُورَةُ البَقَرَةِ",
+   "nameTransliteration": "Al-Baqara",
+   "ayahCount": 286,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 3,
+   "nameArabic": "سُورَةُ آلِ عِمۡرَانَ",
+   "nameTransliteration": "Aal-i-Imraan",
+   "ayahCount": 200,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 4,
+   "nameArabic": "سُورَةُ النِّسَاءِ",
+   "nameTransliteration": "An-Nisaa",
+   "ayahCount": 176,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 5,
+   "nameArabic": "سُورَةُ المَائـِدَةِ",
+   "nameTransliteration": "Al-Maaida",
+   "ayahCount": 120,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 6,
+   "nameArabic": "سُورَةُ الأَنۡعَامِ",
+   "nameTransliteration": "Al-An'aam",
+   "ayahCount": 165,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 7,
+   "nameArabic": "سُورَةُ الأَعۡرَافِ",
+   "nameTransliteration": "Al-A'raaf",
+   "ayahCount": 206,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 8,
+   "nameArabic": "سُورَةُ الأَنفَالِ",
+   "nameTransliteration": "Al-Anfaal",
+   "ayahCount": 75,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 9,
+   "nameArabic": "سُورَةُ التَّوۡبَةِ",
+   "nameTransliteration": "At-Tawba",
+   "ayahCount": 129,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 10,
+   "nameArabic": "سُورَةُ يُونُسَ",
+   "nameTransliteration": "Yunus",
+   "ayahCount": 109,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 11,
+   "nameArabic": "سُورَةُ هُودٍ",
+   "nameTransliteration": "Hud",
+   "ayahCount": 123,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 12,
+   "nameArabic": "سُورَةُ يُوسُفَ",
+   "nameTransliteration": "Yusuf",
+   "ayahCount": 111,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 13,
+   "nameArabic": "سُورَةُ الرَّعۡدِ",
+   "nameTransliteration": "Ar-Ra'd",
+   "ayahCount": 43,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 14,
+   "nameArabic": "سُورَةُ إِبۡرَاهِيمَ",
+   "nameTransliteration": "Ibrahim",
+   "ayahCount": 52,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 15,
+   "nameArabic": "سُورَةُ الحِجۡرِ",
+   "nameTransliteration": "Al-Hijr",
+   "ayahCount": 99,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 16,
+   "nameArabic": "سُورَةُ النَّحۡلِ",
+   "nameTransliteration": "An-Nahl",
+   "ayahCount": 128,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 17,
+   "nameArabic": "سُورَةُ الإِسۡرَاءِ",
+   "nameTransliteration": "Al-Israa",
+   "ayahCount": 111,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 18,
+   "nameArabic": "سُورَةُ الكَهۡفِ",
+   "nameTransliteration": "Al-Kahf",
+   "ayahCount": 110,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 19,
+   "nameArabic": "سُورَةُ مَرۡيَمَ",
+   "nameTransliteration": "Maryam",
+   "ayahCount": 98,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 20,
+   "nameArabic": "سُورَةُ طه",
+   "nameTransliteration": "Taa-Haa",
+   "ayahCount": 135,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 21,
+   "nameArabic": "سُورَةُ الأَنبِيَاءِ",
+   "nameTransliteration": "Al-Anbiyaa",
+   "ayahCount": 112,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 22,
+   "nameArabic": "سُورَةُ الحَجِّ",
+   "nameTransliteration": "Al-Hajj",
+   "ayahCount": 78,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 23,
+   "nameArabic": "سُورَةُ المُؤۡمِنُونَ",
+   "nameTransliteration": "Al-Muminoon",
+   "ayahCount": 118,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 24,
+   "nameArabic": "سُورَةُ النُّورِ",
+   "nameTransliteration": "An-Noor",
+   "ayahCount": 64,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 25,
+   "nameArabic": "سُورَةُ الفُرۡقَانِ",
+   "nameTransliteration": "Al-Furqaan",
+   "ayahCount": 77,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 26,
+   "nameArabic": "سُورَةُ الشُّعَرَاءِ",
+   "nameTransliteration": "Ash-Shu'araa",
+   "ayahCount": 227,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 27,
+   "nameArabic": "سُورَةُ النَّمۡلِ",
+   "nameTransliteration": "An-Naml",
+   "ayahCount": 93,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 28,
+   "nameArabic": "سُورَةُ القَصَصِ",
+   "nameTransliteration": "Al-Qasas",
+   "ayahCount": 88,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 29,
+   "nameArabic": "سُورَةُ العَنكَبُوتِ",
+   "nameTransliteration": "Al-Ankaboot",
+   "ayahCount": 69,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 30,
+   "nameArabic": "سُورَةُ الرُّومِ",
+   "nameTransliteration": "Ar-Room",
+   "ayahCount": 60,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 31,
+   "nameArabic": "سُورَةُ لُقۡمَانَ",
+   "nameTransliteration": "Luqman",
+   "ayahCount": 34,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 32,
+   "nameArabic": "سُورَةُ السَّجۡدَةِ",
+   "nameTransliteration": "As-Sajda",
+   "ayahCount": 30,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 33,
+   "nameArabic": "سُورَةُ الأَحۡزَابِ",
+   "nameTransliteration": "Al-Ahzaab",
+   "ayahCount": 73,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 34,
+   "nameArabic": "سُورَةُ سَبَإٍ",
+   "nameTransliteration": "Saba",
+   "ayahCount": 54,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 35,
+   "nameArabic": "سُورَةُ فَاطِرٍ",
+   "nameTransliteration": "Faatir",
+   "ayahCount": 45,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 36,
+   "nameArabic": "سُورَةُ يسٓ",
+   "nameTransliteration": "Yaseen",
+   "ayahCount": 83,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 37,
+   "nameArabic": "سُورَةُ الصَّافَّاتِ",
+   "nameTransliteration": "As-Saaffaat",
+   "ayahCount": 182,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 38,
+   "nameArabic": "سُورَةُ صٓ",
+   "nameTransliteration": "Saad",
+   "ayahCount": 88,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 39,
+   "nameArabic": "سُورَةُ الزُّمَرِ",
+   "nameTransliteration": "Az-Zumar",
+   "ayahCount": 75,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 40,
+   "nameArabic": "سُورَةُ غَافِرٍ",
+   "nameTransliteration": "Ghafir",
+   "ayahCount": 85,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 41,
+   "nameArabic": "سُورَةُ فُصِّلَتۡ",
+   "nameTransliteration": "Fussilat",
+   "ayahCount": 54,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 42,
+   "nameArabic": "سُورَةُ الشُّورَىٰ",
+   "nameTransliteration": "Ash-Shura",
+   "ayahCount": 53,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 43,
+   "nameArabic": "سُورَةُ الزُّخۡرُفِ",
+   "nameTransliteration": "Az-Zukhruf",
+   "ayahCount": 89,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 44,
+   "nameArabic": "سُورَةُ الدُّخَانِ",
+   "nameTransliteration": "Ad-Dukhaan",
+   "ayahCount": 59,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 45,
+   "nameArabic": "سُورَةُ الجَاثِيَةِ",
+   "nameTransliteration": "Al-Jaathiya",
+   "ayahCount": 37,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 46,
+   "nameArabic": "سُورَةُ الأَحۡقَافِ",
+   "nameTransliteration": "Al-Ahqaf",
+   "ayahCount": 35,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 47,
+   "nameArabic": "سُورَةُ مُحَمَّدٍ",
+   "nameTransliteration": "Muhammad",
+   "ayahCount": 38,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 48,
+   "nameArabic": "سُورَةُ الفَتۡحِ",
+   "nameTransliteration": "Al-Fath",
+   "ayahCount": 29,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 49,
+   "nameArabic": "سُورَةُ الحُجُرَاتِ",
+   "nameTransliteration": "Al-Hujuraat",
+   "ayahCount": 18,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 50,
+   "nameArabic": "سُورَةُ قٓ",
+   "nameTransliteration": "Qaaf",
+   "ayahCount": 45,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 51,
+   "nameArabic": "سُورَةُ الذَّارِيَاتِ",
+   "nameTransliteration": "Adh-Dhaariyat",
+   "ayahCount": 60,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 52,
+   "nameArabic": "سُورَةُ الطُّورِ",
+   "nameTransliteration": "At-Tur",
+   "ayahCount": 49,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 53,
+   "nameArabic": "سُورَةُ النَّجۡمِ",
+   "nameTransliteration": "An-Najm",
+   "ayahCount": 62,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 54,
+   "nameArabic": "سُورَةُ القَمَرِ",
+   "nameTransliteration": "Al-Qamar",
+   "ayahCount": 55,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 55,
+   "nameArabic": "سُورَةُ الرَّحۡمَٰن",
+   "nameTransliteration": "Ar-Rahmaan",
+   "ayahCount": 78,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 56,
+   "nameArabic": "سُورَةُ الوَاقِعَةِ",
+   "nameTransliteration": "Al-Waaqia",
+   "ayahCount": 96,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 57,
+   "nameArabic": "سُورَةُ الحَدِيدِ",
+   "nameTransliteration": "Al-Hadid",
+   "ayahCount": 29,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 58,
+   "nameArabic": "سُورَةُ المُجَادلَةِ",
+   "nameTransliteration": "Al-Mujaadila",
+   "ayahCount": 22,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 59,
+   "nameArabic": "سُورَةُ الحَشۡرِ",
+   "nameTransliteration": "Al-Hashr",
+   "ayahCount": 24,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 60,
+   "nameArabic": "سُورَةُ المُمۡتَحنَةِ",
+   "nameTransliteration": "Al-Mumtahana",
+   "ayahCount": 13,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 61,
+   "nameArabic": "سُورَةُ الصَّفِّ",
+   "nameTransliteration": "As-Saff",
+   "ayahCount": 14,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 62,
+   "nameArabic": "سُورَةُ الجُمُعَةِ",
+   "nameTransliteration": "Al-Jumu'a",
+   "ayahCount": 11,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 63,
+   "nameArabic": "سُورَةُ المُنَافِقُونَ",
+   "nameTransliteration": "Al-Munaafiqoon",
+   "ayahCount": 11,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 64,
+   "nameArabic": "سُورَةُ التَّغَابُنِ",
+   "nameTransliteration": "At-Taghaabun",
+   "ayahCount": 18,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 65,
+   "nameArabic": "سُورَةُ الطَّلَاقِ",
+   "nameTransliteration": "At-Talaaq",
+   "ayahCount": 12,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 66,
+   "nameArabic": "سُورَةُ التَّحۡرِيمِ",
+   "nameTransliteration": "At-Tahrim",
+   "ayahCount": 12,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 67,
+   "nameArabic": "سُورَةُ المُلۡكِ",
+   "nameTransliteration": "Al-Mulk",
+   "ayahCount": 30,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 68,
+   "nameArabic": "سُورَةُ القَلَمِ",
+   "nameTransliteration": "Al-Qalam",
+   "ayahCount": 52,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 69,
+   "nameArabic": "سُورَةُ الحَاقَّةِ",
+   "nameTransliteration": "Al-Haaqqa",
+   "ayahCount": 52,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 70,
+   "nameArabic": "سُورَةُ المَعَارِجِ",
+   "nameTransliteration": "Al-Ma'aarij",
+   "ayahCount": 44,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 71,
+   "nameArabic": "سُورَةُ نُوحٍ",
+   "nameTransliteration": "Nooh",
+   "ayahCount": 28,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 72,
+   "nameArabic": "سُورَةُ الجِنِّ",
+   "nameTransliteration": "Al-Jinn",
+   "ayahCount": 28,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 73,
+   "nameArabic": "سُورَةُ المُزَّمِّلِ",
+   "nameTransliteration": "Al-Muzzammil",
+   "ayahCount": 20,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 74,
+   "nameArabic": "سُورَةُ المُدَّثِّرِ",
+   "nameTransliteration": "Al-Muddaththir",
+   "ayahCount": 56,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 75,
+   "nameArabic": "سُورَةُ القِيَامَةِ",
+   "nameTransliteration": "Al-Qiyaama",
+   "ayahCount": 40,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 76,
+   "nameArabic": "سُورَةُ الإِنسَانِ",
+   "nameTransliteration": "Al-Insaan",
+   "ayahCount": 31,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 77,
+   "nameArabic": "سُورَةُ المُرۡسَلَاتِ",
+   "nameTransliteration": "Al-Mursalaat",
+   "ayahCount": 50,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 78,
+   "nameArabic": "سُورَةُ النَّبَإِ",
+   "nameTransliteration": "An-Naba",
+   "ayahCount": 40,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 79,
+   "nameArabic": "سُورَةُ النَّازِعَاتِ",
+   "nameTransliteration": "An-Naazi'aat",
+   "ayahCount": 46,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 80,
+   "nameArabic": "سُورَةُ عَبَسَ",
+   "nameTransliteration": "Abasa",
+   "ayahCount": 42,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 81,
+   "nameArabic": "سُورَةُ التَّكۡوِيرِ",
+   "nameTransliteration": "At-Takwir",
+   "ayahCount": 29,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 82,
+   "nameArabic": "سُورَةُ الانفِطَارِ",
+   "nameTransliteration": "Al-Infitaar",
+   "ayahCount": 19,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 83,
+   "nameArabic": "سُورَةُ المُطَفِّفِينَ",
+   "nameTransliteration": "Al-Mutaffifin",
+   "ayahCount": 36,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 84,
+   "nameArabic": "سُورَةُ الانشِقَاقِ",
+   "nameTransliteration": "Al-Inshiqaaq",
+   "ayahCount": 25,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 85,
+   "nameArabic": "سُورَةُ البُرُوجِ",
+   "nameTransliteration": "Al-Burooj",
+   "ayahCount": 22,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 86,
+   "nameArabic": "سُورَةُ الطَّارِقِ",
+   "nameTransliteration": "At-Taariq",
+   "ayahCount": 17,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 87,
+   "nameArabic": "سُورَةُ الأَعۡلَىٰ",
+   "nameTransliteration": "Al-A'laa",
+   "ayahCount": 19,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 88,
+   "nameArabic": "سُورَةُ الغَاشِيَةِ",
+   "nameTransliteration": "Al-Ghaashiya",
+   "ayahCount": 26,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 89,
+   "nameArabic": "سُورَةُ الفَجۡرِ",
+   "nameTransliteration": "Al-Fajr",
+   "ayahCount": 30,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 90,
+   "nameArabic": "سُورَةُ البَلَدِ",
+   "nameTransliteration": "Al-Balad",
+   "ayahCount": 20,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 91,
+   "nameArabic": "سُورَةُ الشَّمۡسِ",
+   "nameTransliteration": "Ash-Shams",
+   "ayahCount": 15,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 92,
+   "nameArabic": "سُورَةُ اللَّيۡلِ",
+   "nameTransliteration": "Al-Lail",
+   "ayahCount": 21,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 93,
+   "nameArabic": "سُورَةُ الضُّحَىٰ",
+   "nameTransliteration": "Ad-Dhuhaa",
+   "ayahCount": 11,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 94,
+   "nameArabic": "سُورَةُ الشَّرۡحِ",
+   "nameTransliteration": "Ash-Sharh",
+   "ayahCount": 8,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 95,
+   "nameArabic": "سُورَةُ التِّينِ",
+   "nameTransliteration": "At-Tin",
+   "ayahCount": 8,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 96,
+   "nameArabic": "سُورَةُ العَلَقِ",
+   "nameTransliteration": "Al-Alaq",
+   "ayahCount": 19,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 97,
+   "nameArabic": "سُورَةُ القَدۡرِ",
+   "nameTransliteration": "Al-Qadr",
+   "ayahCount": 5,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 98,
+   "nameArabic": "سُورَةُ البَيِّنَةِ",
+   "nameTransliteration": "Al-Bayyina",
+   "ayahCount": 8,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 99,
+   "nameArabic": "سُورَةُ الزَّلۡزَلَةِ",
+   "nameTransliteration": "Az-Zalzala",
+   "ayahCount": 8,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 100,
+   "nameArabic": "سُورَةُ العَادِيَاتِ",
+   "nameTransliteration": "Al-Aadiyaat",
+   "ayahCount": 11,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 101,
+   "nameArabic": "سُورَةُ القَارِعَةِ",
+   "nameTransliteration": "Al-Qaari'a",
+   "ayahCount": 11,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 102,
+   "nameArabic": "سُورَةُ التَّكَاثُرِ",
+   "nameTransliteration": "At-Takaathur",
+   "ayahCount": 8,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 103,
+   "nameArabic": "سُورَةُ العَصۡرِ",
+   "nameTransliteration": "Al-Asr",
+   "ayahCount": 3,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 104,
+   "nameArabic": "سُورَةُ الهُمَزَةِ",
+   "nameTransliteration": "Al-Humaza",
+   "ayahCount": 9,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 105,
+   "nameArabic": "سُورَةُ الفِيلِ",
+   "nameTransliteration": "Al-Fil",
+   "ayahCount": 5,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 106,
+   "nameArabic": "سُورَةُ قُرَيۡشٍ",
+   "nameTransliteration": "Quraish",
+   "ayahCount": 4,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 107,
+   "nameArabic": "سُورَةُ المَاعُونِ",
+   "nameTransliteration": "Al-Maa'un",
+   "ayahCount": 7,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 108,
+   "nameArabic": "سُورَةُ الكَوۡثَرِ",
+   "nameTransliteration": "Al-Kawthar",
+   "ayahCount": 3,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 109,
+   "nameArabic": "سُورَةُ الكَافِرُونَ",
+   "nameTransliteration": "Al-Kaafiroon",
+   "ayahCount": 6,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 110,
+   "nameArabic": "سُورَةُ النَّصۡرِ",
+   "nameTransliteration": "An-Nasr",
+   "ayahCount": 3,
+   "revelationPlace": "مدنية"
+  },
+  {
+   "number": 111,
+   "nameArabic": "سُورَةُ المَسَدِ",
+   "nameTransliteration": "Al-Masad",
+   "ayahCount": 5,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 112,
+   "nameArabic": "سُورَةُ الإِخۡلَاصِ",
+   "nameTransliteration": "Al-Ikhlaas",
+   "ayahCount": 4,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 113,
+   "nameArabic": "سُورَةُ الفَلَقِ",
+   "nameTransliteration": "Al-Falaq",
+   "ayahCount": 5,
+   "revelationPlace": "مكية"
+  },
+  {
+   "number": 114,
+   "nameArabic": "سُورَةُ النَّاسِ",
+   "nameTransliteration": "An-Naas",
+   "ayahCount": 6,
+   "revelationPlace": "مكية"
+  }
+ ],
+ "basmala": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+}

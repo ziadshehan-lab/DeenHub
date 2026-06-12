@@ -44,4 +44,27 @@ class AppStrings {
   // المسبحة
   static const String tasbihCount = 'عدد التسبيحات';
   static const String reset = 'إعادة تعيين';
+
+  // القرآن الكريم
+  static const String surahLabel = 'سورة';
+  static const String ayahLabel = 'الآية';
+  static const String ayatLabel = 'آيات';
+  static const String juzLabel = 'الجزء';
+  static const String pageLabel = 'الصفحة';
+  static const String continueReading = 'متابعة القراءة';
+  static const String lastReadLabel = 'آخر قراءة';
+  static const String searchInQuran = 'ابحث في القرآن الكريم...';
+  static const String noResults = 'لا توجد نتائج';
+  static const String copyAyah = 'نسخ الآية';
+  static const String shareAyah = 'مشاركة الآية';
+  static const String ayahCopied = 'تم نسخ الآية';
+  static const String addToFavorites = 'إضافة إلى المفضلة';
+  static const String removeFromFavorites = 'إزالة من المفضلة';
+  static const String setAsLastRead = 'تحديد كموضع القراءة';
+  static const String lastReadSaved = 'تم حفظ موضع القراءة';
+  static const String favoriteAyahs = 'الآيات المفضلة';
+  static const String noFavoritesYet =
+      'لا توجد عناصر مفضلة بعد — اضغط على آية لإضافتها';
+  static const String loadError = 'تعذر تحميل المحتوى';
+  static const String retry = 'إعادة المحاولة';
 }

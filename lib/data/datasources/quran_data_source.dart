@@ -1,22 +1,23 @@
-import '../../models/surah.dart';
+import '../../models/quran_models.dart';
 
 /// واجهة مصدر بيانات القرآن الكريم.
 ///
-/// التطبيقات المستقبلية الممكنة:
-/// - مصدر بعيد عبر HTTP من واجهة برمجة رسمية (RemoteQuranDataSource)
-/// - مصدر محلي من ملفات JSON داخل التطبيق (AssetQuranDataSource)
-/// - مصدر قاعدة بيانات SQLite (SqliteQuranDataSource)
-/// - مصدر ذاكرة مؤقتة (CachedQuranDataSource)
+/// التطبيقات الحالية:
+/// - [RemoteQuranDataSource] عبر واجهة Quran.com الرسمية (HTTP)
+/// - [LocalQuranDataSource] من ملفات JSON مضمَّنة مع التطبيق
 abstract class QuranDataSource {
   /// جلب قائمة جميع السور.
-  Future<List<Surah>> fetchSurahs();
+  Future<List<SurahModel>> fetchSurahs();
 
   /// جلب بيانات سورة واحدة برقمها.
-  Future<Surah> fetchSurah(int surahNumber);
+  Future<SurahModel> fetchSurah(int surahNumber);
 
   /// جلب آيات سورة محددة.
-  Future<List<Ayah>> fetchAyahs(int surahNumber);
+  Future<List<AyahModel>> fetchAyahs(int surahNumber);
 
   /// البحث في نصوص الآيات.
-  Future<List<Ayah>> searchAyahs(String query);
+  Future<List<AyahModel>> searchAyahs(String query);
+
+  /// نص البسملة (يُعرض في رأس كل سورة عدا الفاتحة والتوبة).
+  Future<String> fetchBasmala();
 }

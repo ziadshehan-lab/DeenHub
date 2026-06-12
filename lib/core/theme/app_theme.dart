@@ -8,6 +8,19 @@ class AppTheme {
   static const Color _seedColor = Color(0xFF0E7C5A); // أخضر زمردي
   static const Color _goldAccent = Color(0xFFC9A227); // ذهبي
 
+  /// خط عربي محسّن لعرض النص القرآني.
+  static const String quranFontFamily = 'Amiri';
+
+  /// نمط نص القراءة القرآنية: خط أميري بمسافة أسطر مريحة.
+  static TextStyle quranTextStyle(BuildContext context, {double? fontSize}) {
+    return TextStyle(
+      fontFamily: quranFontFamily,
+      fontSize: fontSize ?? 24,
+      height: 2.0,
+      color: Theme.of(context).colorScheme.onSurface,
+    );
+  }
+
   static ThemeData get light => _buildTheme(Brightness.light);
 
   static ThemeData get dark => _buildTheme(Brightness.dark);

@@ -24,6 +24,12 @@ dependencies:
   # Local cache ready
   shared_preferences: ^2.3.3
 
+  # مشاركة الآيات
+  share_plus: ^10.1.4
+
+  # الانتقال إلى آية محددة داخل قائمة القراءة
+  scrollable_positioned_list: ^0.3.8
+
   intl: any
 
 dev_dependencies:
@@ -38,3 +44,12 @@ flutter:
   # JSON assets ready - local Islamic content data files
   assets:
     - lib/assets_data/
+    - lib/assets_data/quran/
+
+  # خط أميري — خط عربي محسّن لعرض النص القرآني (رخصة OFL)
+  fonts:
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
+          weight: 700

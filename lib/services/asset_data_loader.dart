@@ -14,9 +14,15 @@ class AssetDataLoader {
   /// قراءة ملف JSON بمساره النسبي داخل مجلد البيانات.
   ///
   /// مثال: `loadJson('quran/surahs.json')`.
+  ///
+  /// يُفك ترميز UTF-8 هنا مباشرة بدل `loadString` التي تنقل فك ترميز
+  /// الملفات الكبيرة إلى Isolate منفصل — وهو ما يعلّق اختبارات الواجهة.
   Future<dynamic> loadJson(String relativePath) async {
-    final raw = await rootBundle
-        .loadString('${AppConstants.assetsDataPath}/$relativePath');
+    final data = await rootBundle
+        .load('${AppConstants.assetsDataPath}/$relativePath');
+    final raw = utf8.decode(
+      data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+    );
     return jsonDecode(raw);
   }
 }
