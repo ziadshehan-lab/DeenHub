@@ -1,22 +1,29 @@
-import '../../models/tafsir_entry.dart';
+import '../../models/tafsir_models.dart';
 
 /// واجهة مصدر بيانات التفسير.
 ///
-/// التطبيقات المستقبلية: HTTP API، ملفات JSON محلية، SQLite، ذاكرة مؤقتة.
+/// التطبيقات الحالية:
+/// - [RemoteTafsirDataSource] عبر واجهة Quran.com الرسمية (HTTP)
+/// - [LocalTafsirDataSource] من ملفات JSON مضمَّنة مع التطبيق
 abstract class TafsirDataSource {
-  /// جلب قائمة كتب التفسير المتاحة.
-  Future<List<TafsirEdition>> fetchEditions();
+  /// جلب قائمة كتب التفسير المعتمدة.
+  Future<List<TafsirEditionModel>> fetchEditions();
 
   /// جلب تفسير آية محددة من كتاب تفسير محدد.
-  Future<TafsirEntry> fetchTafsir({
+  Future<TafsirModel> fetchTafsir({
     required String editionId,
     required int surahNumber,
     required int ayahNumber,
   });
+}
 
-  /// جلب تفسير سورة كاملة من كتاب تفسير محدد.
-  Future<List<TafsirEntry>> fetchSurahTafsir({
-    required String editionId,
-    required int surahNumber,
-  });
+/// يُرمى عندما يكون التفسير المطلوب غير متاح من هذا المصدر
+/// (كتاب غير مدعوم، أو لا توجد بيانات محلية للسورة المطلوبة).
+class TafsirUnavailableException implements Exception {
+  const TafsirUnavailableException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'TafsirUnavailableException: $message';
 }

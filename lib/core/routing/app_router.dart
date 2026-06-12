@@ -13,6 +13,7 @@ import '../../screens/quran_screen.dart';
 import '../../screens/search_screen.dart';
 import '../../screens/settings_screen.dart';
 import '../../screens/surah_detail_screen.dart';
+import '../../screens/tafsir_detail_screen.dart';
 import '../../screens/tafsir_screen.dart';
 import '../../screens/tasbih_screen.dart';
 import 'app_routes.dart';
@@ -28,6 +29,8 @@ class AppRouter {
       AppRoutes.surahDetail =>
         SurahDetailScreen(args: settings.arguments as SurahDetailArgs?),
       AppRoutes.tafsir => const TafsirScreen(),
+      AppRoutes.tafsirDetail =>
+        TafsirDetailScreen(args: settings.arguments as TafsirDetailArgs?),
       AppRoutes.hadith => const HadithScreen(),
       AppRoutes.hadithDetail =>
         HadithDetailScreen(args: settings.arguments as HadithDetailArgs?),

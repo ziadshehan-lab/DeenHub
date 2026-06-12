@@ -1,18 +1,15 @@
-import '../../models/tafsir_entry.dart';
+import '../../models/tafsir_models.dart';
 
 /// واجهة مستودع التفسير — تنسّق بين مصادر بيانات التفسير
 /// وتطبّق سياسة التخزين المؤقت.
 abstract class TafsirRepository {
-  Future<List<TafsirEdition>> getEditions();
+  /// قائمة كتب التفسير المعتمدة (مع حالة توفر كل كتاب).
+  Future<List<TafsirEditionModel>> getEditions();
 
-  Future<TafsirEntry> getTafsir({
+  /// تفسير آية محددة من كتاب تفسير محدد.
+  Future<TafsirModel> getTafsir({
     required String editionId,
     required int surahNumber,
     required int ayahNumber,
-  });
-
-  Future<List<TafsirEntry>> getSurahTafsir({
-    required String editionId,
-    required int surahNumber,
   });
 }

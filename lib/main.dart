@@ -7,9 +7,13 @@ import 'core/routing/app_router.dart';
 import 'core/routing/app_routes.dart';
 import 'core/theme/app_theme.dart';
 import 'data/datasources/local_quran_data_source.dart';
+import 'data/datasources/local_tafsir_data_source.dart';
 import 'data/datasources/remote_quran_data_source.dart';
+import 'data/datasources/remote_tafsir_data_source.dart';
 import 'data/repositories/quran_repository.dart';
 import 'data/repositories/quran_repository_impl.dart';
+import 'data/repositories/tafsir_repository.dart';
+import 'data/repositories/tafsir_repository_impl.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/quran_provider.dart';
 import 'providers/settings_provider.dart';
@@ -20,10 +24,11 @@ void main() {
 }
 
 class DeenHubApp extends StatelessWidget {
-  const DeenHubApp({super.key, this.quranRepository});
+  const DeenHubApp({super.key, this.quranRepository, this.tafsirRepository});
 
-  /// مستودع قرآن بديل — يُستخدم في الاختبارات لحقن مصادر وهمية أو محلية فقط.
+  /// مستودعات بديلة — تُستخدم في الاختبارات لحقن مصادر وهمية أو محلية فقط.
   final QuranRepository? quranRepository;
+  final TafsirRepository? tafsirRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,14 @@ class DeenHubApp extends StatelessWidget {
           create: (context) =>
               QuranProvider(repository: context.read<QuranRepository>())
                 ..init(),
+        ),
+        Provider<TafsirRepository>(
+          create: (_) =>
+              tafsirRepository ??
+              TafsirRepositoryImpl(
+                remote: RemoteTafsirDataSource(),
+                local: LocalTafsirDataSource(),
+              ),
         ),
       ],
       child: Consumer<SettingsProvider>(

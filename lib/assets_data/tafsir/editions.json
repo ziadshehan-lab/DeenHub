@@ -1,0 +1,51 @@
+{
+ "source": {
+  "sourceName": "سجل كتب التفسير المعتمدة في التطبيق",
+  "authorOrScholar": null,
+  "reference": "tafsir editions registry",
+  "sourceUrl": "https://quran.com",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "editions": [
+  {
+   "id": "saadi",
+   "remoteId": 91,
+   "nameArabic": "تفسير السعدي",
+   "fullName": "تيسير الكريم الرحمن في تفسير كلام المنان",
+   "scholar": "عبد الرحمن بن ناصر السعدي",
+   "available": true
+  },
+  {
+   "id": "ibn-kathir",
+   "remoteId": 14,
+   "nameArabic": "تفسير ابن كثير",
+   "fullName": "تفسير القرآن العظيم",
+   "scholar": "إسماعيل بن عمر بن كثير",
+   "available": true
+  },
+  {
+   "id": "tabari",
+   "remoteId": 15,
+   "nameArabic": "تفسير الطبري",
+   "fullName": "جامع البيان عن تأويل آي القرآن",
+   "scholar": "محمد بن جرير الطبري",
+   "available": true
+  },
+  {
+   "id": "qurtubi",
+   "remoteId": 90,
+   "nameArabic": "تفسير القرطبي",
+   "fullName": "الجامع لأحكام القرآن",
+   "scholar": "محمد بن أحمد القرطبي",
+   "available": true
+  },
+  {
+   "id": "jalalayn",
+   "remoteId": null,
+   "nameArabic": "تفسير الجلالين",
+   "fullName": "تفسير الجلالين",
+   "scholar": "جلال الدين المحلي وجلال الدين السيوطي",
+   "available": false
+  }
+ ]
+}

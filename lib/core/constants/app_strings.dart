@@ -67,4 +67,14 @@ class AppStrings {
       'لا توجد عناصر مفضلة بعد — اضغط على آية لإضافتها';
   static const String loadError = 'تعذر تحميل المحتوى';
   static const String retry = 'إعادة المحاولة';
+
+  // التفسير
+  static const String viewTafsir = 'عرض التفسير';
+  static const String tafsirOfAyah = 'تفسير الآية';
+  static const String tafsirBook = 'كتاب التفسير';
+  static const String tafsirUnavailable = 'هذا التفسير غير متاح حالياً';
+  static const String tafsirComingSoon = 'قريباً';
+  static const String tafsirHint =
+      'افتح أي سورة ثم اضغط على آية واختر «عرض التفسير»';
+  static const String availableEditions = 'كتب التفسير المعتمدة';
 }

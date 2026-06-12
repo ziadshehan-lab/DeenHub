@@ -4,10 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../core/constants/app_strings.dart';
+import '../core/routing/app_routes.dart';
 import '../core/utils/arabic_numbers.dart';
 import '../models/quran_models.dart';
 import '../providers/favorites_provider.dart';
 import '../providers/quran_provider.dart';
+import '../screens/tafsir_detail_screen.dart';
 
 /// نص الآية مهيأ للنسخ والمشاركة مع الإسناد الكامل للمصدر.
 String formatAyahForSharing(AyahModel ayah, {String? surahName}) {
@@ -57,6 +59,21 @@ Future<void> showAyahActionsSheet(
                 ),
               ),
               const Divider(height: 1),
+              ListTile(
+                leading: const Icon(Icons.auto_stories),
+                title: const Text(AppStrings.viewTafsir),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  Navigator.of(context).pushNamed(
+                    AppRoutes.tafsirDetail,
+                    arguments: TafsirDetailArgs(
+                      surahNumber: ayah.surahNumber,
+                      ayahNumber: ayah.ayahNumber,
+                      surahName: surahName,
+                    ),
+                  );
+                },
+              ),
               ListTile(
                 leading: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border,
