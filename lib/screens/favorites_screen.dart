@@ -5,12 +5,15 @@ import '../core/constants/app_strings.dart';
 import '../core/routing/app_routes.dart';
 import '../core/theme/app_theme.dart';
 import '../core/utils/arabic_numbers.dart';
+import '../data/repositories/hadith_repository.dart';
 import '../data/repositories/quran_repository.dart';
 import '../data/repositories/tafsir_repository.dart';
+import '../models/hadith_models.dart';
 import '../models/quran_models.dart';
 import '../models/tafsir_models.dart';
 import '../providers/favorites_provider.dart';
 import '../widgets/placeholder_content.dart';
+import 'hadith_detail_screen.dart';
 import 'surah_detail_screen.dart';
 import 'tafsir_detail_screen.dart';
 
@@ -57,15 +60,29 @@ class FavoritesScreen extends StatelessWidget {
     return positions;
   }
 
+  /// معرّفات الأحاديث المفضلة `hadith:معرّف`.
+  List<String> _hadithIds(Set<String> ids) {
+    final hadithIds = <String>[];
+    for (final id in ids) {
+      final parts = id.split(':');
+      if (parts.length == 2 && parts[0] == 'hadith') {
+        hadithIds.add(parts[1]);
+      }
+    }
+    hadithIds.sort();
+    return hadithIds;
+  }
+
   @override
   Widget build(BuildContext context) {
     final favorites = context.watch<FavoritesProvider>();
     final ayahs = _ayahPositions(favorites.favoriteIds);
     final tafsirs = _tafsirPositions(favorites.favoriteIds);
+    final hadiths = _hadithIds(favorites.favoriteIds);
 
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.favorites)),
-      body: ayahs.isEmpty && tafsirs.isEmpty
+      body: ayahs.isEmpty && tafsirs.isEmpty && hadiths.isEmpty
           ? const PlaceholderContent(
               icon: Icons.favorite_border,
               message: AppStrings.noFavoritesYet,
@@ -90,8 +107,66 @@ class FavoritesScreen extends StatelessWidget {
                       ayahNumber: position.ayah,
                     ),
                 ],
+                if (hadiths.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.favoriteHadiths),
+                  for (final hadithId in hadiths)
+                    _FavoriteHadithTile(hadithId: hadithId),
+                ],
               ],
             ),
+    );
+  }
+}
+
+/// حديث مفضل: يجلب النص عبر HadithRepository ويعرض مقتطفاً منه.
+class _FavoriteHadithTile extends StatelessWidget {
+  const _FavoriteHadithTile({required this.hadithId});
+
+  final String hadithId;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<HadithModel>(
+      future: context.read<HadithRepository>().getHadith(hadithId),
+      builder: (context, snapshot) {
+        final hadith = snapshot.data;
+        return ListTile(
+          leading: Icon(
+            Icons.format_quote,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(
+            hadith?.textArabic ??
+                (snapshot.hasError ? AppStrings.loadError : '...'),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          subtitle: hadith == null
+              ? Text('${AppStrings.hadithLabel} $hadithId')
+              : Text(
+                  [
+                    if (hadith.attribution != null) hadith.attribution!,
+                    if (hadith.grade != null) hadith.grade!,
+                  ].join(' • '),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+          trailing: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Theme.of(context).colorScheme.error,
+            ),
+            tooltip: AppStrings.removeFromFavorites,
+            onPressed: () =>
+                context.read<FavoritesProvider>().toggle('hadith:$hadithId'),
+          ),
+          onTap: () => Navigator.of(context).pushNamed(
+            AppRoutes.hadithDetail,
+            arguments: HadithDetailArgs(hadithId: hadithId),
+          ),
+        );
+      },
     );
   }
 }

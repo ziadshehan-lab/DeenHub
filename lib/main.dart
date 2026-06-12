@@ -7,15 +7,22 @@ import 'core/routing/app_router.dart';
 import 'core/routing/app_routes.dart';
 import 'core/theme/app_theme.dart';
 import 'data/datasources/alquran_cloud_tafsir_data_source.dart';
+import 'data/datasources/dorar_hadith_data_source.dart';
+import 'data/datasources/local_hadith_data_source.dart';
 import 'data/datasources/local_quran_data_source.dart';
 import 'data/datasources/local_tafsir_data_source.dart';
+import 'data/datasources/remote_hadith_data_source.dart';
 import 'data/datasources/remote_quran_data_source.dart';
 import 'data/datasources/remote_tafsir_data_source.dart';
+import 'data/datasources/sunnah_com_hadith_data_source.dart';
+import 'data/repositories/hadith_repository.dart';
+import 'data/repositories/hadith_repository_impl.dart';
 import 'data/repositories/quran_repository.dart';
 import 'data/repositories/quran_repository_impl.dart';
 import 'data/repositories/tafsir_repository.dart';
 import 'data/repositories/tafsir_repository_impl.dart';
 import 'providers/favorites_provider.dart';
+import 'providers/hadith_provider.dart';
 import 'providers/quran_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/tafsir_provider.dart';
@@ -27,11 +34,17 @@ void main() {
 }
 
 class DeenHubApp extends StatelessWidget {
-  const DeenHubApp({super.key, this.quranRepository, this.tafsirRepository});
+  const DeenHubApp({
+    super.key,
+    this.quranRepository,
+    this.tafsirRepository,
+    this.hadithRepository,
+  });
 
   /// مستودعات بديلة — تُستخدم في الاختبارات لحقن مصادر وهمية أو محلية فقط.
   final QuranRepository? quranRepository;
   final TafsirRepository? tafsirRepository;
+  final HadithRepository? hadithRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +78,26 @@ class DeenHubApp extends StatelessWidget {
               ),
         ),
         ChangeNotifierProvider(create: (_) => TafsirProvider()..load()),
+        Provider<HadithRepository>(
+          create: (_) =>
+              hadithRepository ??
+              HadithRepositoryImpl(
+                // الأولوية: Sunnah.com (عند تهيئة المفتاح) ثم موسوعة
+                // الأحاديث النبوية الرسمية
+                remotes: [
+                  SunnahComHadithDataSource(),
+                  RemoteHadithDataSource(),
+                ],
+                searchRemotes: [DorarHadithDataSource()],
+                local: LocalHadithDataSource(),
+                cache: SharedPrefsCacheService(),
+              ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              HadithProvider(repository: context.read<HadithRepository>())
+                ..init(),
+        ),
       ],
       child: Consumer<SettingsProvider>(
         builder: (context, settings, _) {

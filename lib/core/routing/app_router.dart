@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../screens/adhkar_screen.dart';
 import '../../screens/favorites_screen.dart';
+import '../../screens/hadith_books_screen.dart';
+import '../../screens/hadith_chapters_screen.dart';
 import '../../screens/hadith_detail_screen.dart';
-import '../../screens/hadith_screen.dart';
+import '../../screens/hadith_list_screen.dart';
+import '../../screens/hadith_search_screen.dart';
 import '../../screens/home_screen.dart';
 import '../../screens/library_screen.dart';
 import '../../screens/names_of_allah_screen.dart';
@@ -31,9 +34,14 @@ class AppRouter {
       AppRoutes.tafsir => const TafsirScreen(),
       AppRoutes.tafsirDetail =>
         TafsirDetailScreen(args: settings.arguments as TafsirDetailArgs?),
-      AppRoutes.hadith => const HadithScreen(),
+      AppRoutes.hadith => const HadithBooksScreen(),
+      AppRoutes.hadithChapters => HadithChaptersScreen(
+          args: settings.arguments as HadithChaptersArgs?),
+      AppRoutes.hadithList =>
+        HadithListScreen(args: settings.arguments as HadithListArgs?),
       AppRoutes.hadithDetail =>
         HadithDetailScreen(args: settings.arguments as HadithDetailArgs?),
+      AppRoutes.hadithSearch => const HadithSearchScreen(),
       AppRoutes.prayer => const PrayerScreen(),
       AppRoutes.qibla => const QiblaScreen(),
       AppRoutes.adhkar => const AdhkarScreen(),

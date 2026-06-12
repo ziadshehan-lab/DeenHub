@@ -1,0 +1,22 @@
+{
+ "source": {
+  "sourceName": "موسوعة الأحاديث النبوية — HadeethEnc.com",
+  "authorOrScholar": null,
+  "reference": "hadeethenc.com/api/v1",
+  "sourceUrl": "https://hadeethenc.com",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "bookId": "3",
+ "chapters": [
+  {
+   "id": "59",
+   "title": "الإيمان بالله عز وجل",
+   "hadithCount": 157
+  },
+  {
+   "id": "60",
+   "title": "الإيمان بالملائكة",
+   "hadithCount": 42
+  }
+ ]
+}

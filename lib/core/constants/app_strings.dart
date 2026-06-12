@@ -86,4 +86,23 @@ class AppStrings {
   static const String tafsirFavorites = 'مقاطع التفسير المفضلة';
   static const String matchesFound = 'نتيجة';
   static const String noMatchesInText = 'لا توجد مطابقات في النص';
+
+  // الحديث الشريف
+  static const String hadithBooks = 'كتب الحديث';
+  static const String hadithChapters = 'الأبواب';
+  static const String hadithLabel = 'حديث';
+  static const String hadithsCountSuffix = 'حديثاً';
+  static const String narratorLabel = 'الراوي';
+  static const String muhaddithLabel = 'المحدِّث';
+  static const String gradeLabel = 'الدرجة';
+  static const String attributionLabel = 'العزو';
+  static const String hadithNumberLabel = 'رقم الحديث';
+  static const String explanationLabel = 'شرح الحديث';
+  static const String englishTranslation = 'الترجمة الإنجليزية';
+  static const String searchInHadith = 'ابحث في الأحاديث الشريفة...';
+  static const String copyHadith = 'نسخ الحديث';
+  static const String shareHadith = 'مشاركة الحديث';
+  static const String hadithCopied = 'تم نسخ الحديث';
+  static const String favoriteHadiths = 'الأحاديث المفضلة';
+  static const String bookLabel = 'الكتاب';
 }

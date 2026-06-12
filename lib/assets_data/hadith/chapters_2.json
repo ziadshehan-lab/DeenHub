@@ -1,0 +1,22 @@
+{
+ "source": {
+  "sourceName": "موسوعة الأحاديث النبوية — HadeethEnc.com",
+  "authorOrScholar": null,
+  "reference": "hadeethenc.com/api/v1",
+  "sourceUrl": "https://hadeethenc.com",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "bookId": "2",
+ "chapters": [
+  {
+   "id": "43",
+   "title": "مصطلح الحديث",
+   "hadithCount": 4
+  },
+  {
+   "id": "44",
+   "title": "مباحث عامة في السنة",
+   "hadithCount": 13
+  }
+ ]
+}

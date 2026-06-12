@@ -1,0 +1,50 @@
+{
+ "source": {
+  "sourceName": "موسوعة الأحاديث النبوية — HadeethEnc.com",
+  "authorOrScholar": null,
+  "reference": "hadeethenc.com/api/v1",
+  "sourceUrl": "https://hadeethenc.com",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "books": [
+  {
+   "id": "1",
+   "title": "القرآن الكريم وعلومه",
+   "hadithCount": 197
+  },
+  {
+   "id": "2",
+   "title": "الحديث وعلومه",
+   "hadithCount": 16
+  },
+  {
+   "id": "3",
+   "title": "العقيدة",
+   "hadithCount": 725
+  },
+  {
+   "id": "4",
+   "title": "الفقه وأصوله",
+   "hadithCount": 1820
+  },
+  {
+   "id": "5",
+   "title": "الفضائل والآداب",
+   "hadithCount": 1022
+  },
+  {
+   "id": "6",
+   "title": "الدعوة والحسبة",
+   "hadithCount": 140
+  },
+  {
+   "id": "7",
+   "title": "السيرة والتاريخ",
+   "hadithCount": 353
+  }
+ ],
+ "localBooks": [
+  "2",
+  "3"
+ ]
+}

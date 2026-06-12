@@ -9,6 +9,10 @@ class AppConstants {
   static const String hadithApiBaseUrl = '';
   static const String prayerApiBaseUrl = '';
 
+  /// مفتاح واجهة Sunnah.com الرسمية — يُطلب من فريق Sunnah.com.
+  /// عند تهيئته يتفعل مصدر المجموعات الكلاسيكية تلقائياً.
+  static const String sunnahComApiKey = '';
+
   /// مسار ملفات البيانات المحلية (JSON) داخل التطبيق.
   static const String assetsDataPath = 'lib/assets_data';
 
