@@ -105,4 +105,40 @@ class AppStrings {
   static const String hadithCopied = 'تم نسخ الحديث';
   static const String favoriteHadiths = 'الأحاديث المفضلة';
   static const String bookLabel = 'الكتاب';
+
+  // مواقيت الصلاة والقبلة
+  static const Map<String, String> prayerNames = {
+    'fajr': 'الفجر',
+    'sunrise': 'الشروق',
+    'dhuhr': 'الظهر',
+    'asr': 'العصر',
+    'maghrib': 'المغرب',
+    'isha': 'العشاء',
+  };
+  static const String nextPrayerLabel = 'الصلاة التالية';
+  static const String remainingLabel = 'المتبقي';
+  static const String chooseCity = 'اختر مدينتك';
+  static const String chooseCityHint =
+      'تعذر تحديد موقعك تلقائياً — اختر مدينتك لعرض المواقيت';
+  static const String useMyLocation = 'استخدام موقعي الحالي';
+  static const String changeLocation = 'تغيير الموقع';
+  static const String cachedTimesWarning =
+      'تعذر الاتصال — تُعرض آخر مواقيت محفوظة';
+  static const String staleTimesWarning = 'وهي ليوم سابق';
+  static const String calculationMethodLabel = 'طريقة الحساب';
+  static const String prayerSettings = 'إعدادات الصلاة';
+  static const String prayerNotifications = 'تذكيرات الصلاة';
+  static const String notificationsNote =
+      'تُحفظ تفضيلاتك الآن، وتُفعَّل الإشعارات الفعلية بعد إعداد '
+      'المنصات (أندرويد/iOS) في مرحلة لاحقة.';
+  static const String qiblaDegreesLabel = 'درجة من الشمال الحقيقي';
+  static const String distanceToKaaba = 'المسافة إلى الكعبة المشرفة';
+  static const String kmUnit = 'كم';
+  static const String qiblaInstructions =
+      'وجّه السهم نحو الاتجاه المبيّن. إن لم تتوفر بوصلة في جهازك، '
+      'استخدم بوصلة خارجية وحدد الزاوية المعروضة بالدرجات من الشمال '
+      'الحقيقي باتجاه عقارب الساعة.';
+  static const String locateFirst =
+      'حدد موقعك أو مدينتك أولاً من شاشة مواقيت الصلاة';
+  static const String openPrayerScreen = 'فتح مواقيت الصلاة';
 }

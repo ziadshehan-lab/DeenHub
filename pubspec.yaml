@@ -30,6 +30,9 @@ dependencies:
   # الانتقال إلى آية محددة داخل قائمة القراءة
   scrollable_positioned_list: ^0.3.8
 
+  # تحديد موقع المستخدم لمواقيت الصلاة والقبلة
+  geolocator: ^13.0.2
+
   intl: any
 
 dev_dependencies:
@@ -48,6 +51,7 @@ flutter:
     - lib/assets_data/tafsir/
     - lib/assets_data/tafsir/saadi/
     - lib/assets_data/hadith/
+    - lib/assets_data/prayer/
 
   # خط أميري — خط عربي محسّن لعرض النص القرآني (رخصة OFL)
   fonts:

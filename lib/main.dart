@@ -9,24 +9,31 @@ import 'core/theme/app_theme.dart';
 import 'data/datasources/alquran_cloud_tafsir_data_source.dart';
 import 'data/datasources/dorar_hadith_data_source.dart';
 import 'data/datasources/local_hadith_data_source.dart';
+import 'data/datasources/local_prayer_cache_data_source.dart';
 import 'data/datasources/local_quran_data_source.dart';
 import 'data/datasources/local_tafsir_data_source.dart';
 import 'data/datasources/remote_hadith_data_source.dart';
+import 'data/datasources/remote_prayer_data_source.dart';
 import 'data/datasources/remote_quran_data_source.dart';
 import 'data/datasources/remote_tafsir_data_source.dart';
 import 'data/datasources/sunnah_com_hadith_data_source.dart';
 import 'data/repositories/hadith_repository.dart';
 import 'data/repositories/hadith_repository_impl.dart';
+import 'data/repositories/prayer_repository.dart';
+import 'data/repositories/prayer_repository_impl.dart';
 import 'data/repositories/quran_repository.dart';
 import 'data/repositories/quran_repository_impl.dart';
 import 'data/repositories/tafsir_repository.dart';
 import 'data/repositories/tafsir_repository_impl.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/hadith_provider.dart';
+import 'providers/prayer_provider.dart';
 import 'providers/quran_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/tafsir_provider.dart';
 import 'services/cache_service.dart';
+import 'services/location_service.dart';
+import 'services/prayer_notification_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,12 +46,18 @@ class DeenHubApp extends StatelessWidget {
     this.quranRepository,
     this.tafsirRepository,
     this.hadithRepository,
+    this.prayerRepository,
+    this.locationService,
+    this.prayerNotificationService,
   });
 
-  /// مستودعات بديلة — تُستخدم في الاختبارات لحقن مصادر وهمية أو محلية فقط.
+  /// مستودعات وخدمات بديلة — تُحقن في الاختبارات بدل المصادر الفعلية.
   final QuranRepository? quranRepository;
   final TafsirRepository? tafsirRepository;
   final HadithRepository? hadithRepository;
+  final PrayerRepository? prayerRepository;
+  final LocationService? locationService;
+  final PrayerNotificationService? prayerNotificationService;
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +110,23 @@ class DeenHubApp extends StatelessWidget {
           create: (context) =>
               HadithProvider(repository: context.read<HadithRepository>())
                 ..init(),
+        ),
+        Provider<PrayerRepository>(
+          create: (_) =>
+              prayerRepository ??
+              PrayerRepositoryImpl(
+                remote: RemotePrayerDataSource(),
+                cache: LocalPrayerCacheDataSource(
+                  cache: SharedPrefsCacheService(),
+                ),
+              ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PrayerProvider(
+            repository: context.read<PrayerRepository>(),
+            locationService: locationService ?? GeolocatorLocationService(),
+            notificationService: prayerNotificationService,
+          )..init(),
         ),
       ],
       child: Consumer<SettingsProvider>(

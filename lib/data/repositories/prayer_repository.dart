@@ -1,24 +1,36 @@
 import '../../models/prayer_times.dart';
 
-/// واجهة مستودع مواقيت الصلاة واتجاه القبلة — تنسّق بين مصادر البيانات
-/// وتطبّق سياسة التخزين المؤقت.
+/// نتيجة جلب المواقيت: المواقيت + هل جاءت من الذاكرة المحفوظة
+/// (لعرض تنبيه عند انقطاع الاتصال) وهل هي ليوم سابق.
+class PrayerTimesResult {
+  const PrayerTimesResult({
+    required this.times,
+    required this.fromCache,
+    required this.isStale,
+  });
+
+  final PrayerTimesModel times;
+
+  /// جاءت من الذاكرة المحفوظة بدل المصدر البعيد.
+  final bool fromCache;
+
+  /// المواقيت المحفوظة ليوم غير اليوم المطلوب.
+  final bool isStale;
+}
+
+/// واجهة مستودع مواقيت الصلاة واتجاه القبلة.
 abstract class PrayerRepository {
-  Future<PrayerTimes> getPrayerTimes({
+  /// مواقيت يوم محدد: المصدر البعيد أولاً، وعند الفشل آخر مواقيت
+  /// محفوظة مع وسم fromCache.
+  Future<PrayerTimesResult> getPrayerTimes({
     required DateTime date,
     required double latitude,
     required double longitude,
-    String? calculationMethod,
+    int? methodId,
   });
 
-  Future<List<PrayerTimes>> getMonthlyPrayerTimes({
-    required int year,
-    required int month,
-    required double latitude,
-    required double longitude,
-    String? calculationMethod,
-  });
-
-  Future<QiblaDirection> getQiblaDirection({
+  /// اتجاه القبلة — يُحسب محلياً ويعمل دون اتصال.
+  QiblaDirection getQiblaDirection({
     required double latitude,
     required double longitude,
   });

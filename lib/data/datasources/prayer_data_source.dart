@@ -1,30 +1,26 @@
 import '../../models/prayer_times.dart';
 
-/// واجهة مصدر بيانات مواقيت الصلاة واتجاه القبلة.
+/// واجهة مصدر بيانات مواقيت الصلاة.
 ///
-/// التطبيقات المستقبلية: HTTP API (مثل واجهات المواقيت الرسمية)،
-/// حساب محلي، ذاكرة مؤقتة.
+/// التطبيقات الحالية:
+/// - [RemotePrayerDataSource] عبر واجهة AlAdhan الرسمية (HTTP)
+/// - [LocalPrayerCacheDataSource] من الذاكرة الدائمة (آخر مواقيت ناجحة)
 abstract class PrayerDataSource {
-  /// جلب مواقيت الصلاة ليوم محدد في موقع محدد.
-  Future<PrayerTimes> fetchPrayerTimes({
+  /// جلب مواقيت الصلاة ليوم محدد في موقع محدد بطريقة حساب محددة.
+  Future<PrayerTimesModel> fetchPrayerTimes({
     required DateTime date,
     required double latitude,
     required double longitude,
-    String? calculationMethod,
+    int? methodId,
   });
+}
 
-  /// جلب مواقيت الصلاة لشهر كامل.
-  Future<List<PrayerTimes>> fetchMonthlyPrayerTimes({
-    required int year,
-    required int month,
-    required double latitude,
-    required double longitude,
-    String? calculationMethod,
-  });
+/// يُرمى عندما تكون المواقيت غير متاحة من هذا المصدر.
+class PrayerUnavailableException implements Exception {
+  const PrayerUnavailableException(this.message);
 
-  /// جلب اتجاه القبلة من موقع محدد.
-  Future<QiblaDirection> fetchQiblaDirection({
-    required double latitude,
-    required double longitude,
-  });
+  final String message;
+
+  @override
+  String toString() => 'PrayerUnavailableException: $message';
 }

@@ -13,6 +13,7 @@ class AppRoutes {
   static const String hadithDetail = '/hadith/detail';
   static const String hadithSearch = '/hadith/search';
   static const String prayer = '/prayer';
+  static const String prayerSettings = '/prayer/settings';
   static const String qibla = '/qibla';
   static const String adhkar = '/adhkar';
   static const String tasbih = '/tasbih';

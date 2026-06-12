@@ -11,6 +11,7 @@ import '../../screens/home_screen.dart';
 import '../../screens/library_screen.dart';
 import '../../screens/names_of_allah_screen.dart';
 import '../../screens/prayer_screen.dart';
+import '../../screens/prayer_settings_screen.dart';
 import '../../screens/qibla_screen.dart';
 import '../../screens/quran_screen.dart';
 import '../../screens/search_screen.dart';
@@ -43,6 +44,7 @@ class AppRouter {
         HadithDetailScreen(args: settings.arguments as HadithDetailArgs?),
       AppRoutes.hadithSearch => const HadithSearchScreen(),
       AppRoutes.prayer => const PrayerScreen(),
+      AppRoutes.prayerSettings => const PrayerSettingsScreen(),
       AppRoutes.qibla => const QiblaScreen(),
       AppRoutes.adhkar => const AdhkarScreen(),
       AppRoutes.tasbih => const TasbihScreen(),
