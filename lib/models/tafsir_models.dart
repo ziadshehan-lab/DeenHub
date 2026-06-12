@@ -10,6 +10,7 @@ class TafsirEditionModel extends ContentItem {
     this.fullName,
     required this.scholar,
     required this.available,
+    this.localSurahs = const [],
     required super.source,
   });
 
@@ -30,6 +31,9 @@ class TafsirEditionModel extends ContentItem {
   /// هل نص هذا التفسير متاح حالياً من المصادر المتصلة.
   final bool available;
 
+  /// أرقام السور المتوفر نصها محلياً (دون اتصال) لهذا الكتاب.
+  final List<int> localSurahs;
+
   factory TafsirEditionModel.fromJson(
     Map<String, dynamic> json, {
     required ContentSource source,
@@ -41,6 +45,8 @@ class TafsirEditionModel extends ContentItem {
       fullName: json['fullName'] as String?,
       scholar: json['scholar'] as String,
       available: json['available'] as bool,
+      localSurahs: (json['localSurahs'] as List<dynamic>? ?? const [])
+          .cast<int>(),
       source: source,
     );
   }
@@ -52,6 +58,7 @@ class TafsirEditionModel extends ContentItem {
         'fullName': fullName,
         'scholar': scholar,
         'available': available,
+        'localSurahs': localSurahs,
       };
 }
 
@@ -84,6 +91,25 @@ class TafsirModel extends ContentItem {
   String get sourceName => source.sourceName;
   String? get sourceUrl => source.sourceUrl;
   String get reference => source.reference;
+
+  /// معرّف المقطع في المفضلة.
+  String get favoriteId => 'tafsir:$editionId:$surahNumber:$ayahNumber';
+
+  /// معرّف الإشارة المرجعية.
+  String get bookmarkId => '$editionId:$surahNumber:$ayahNumber';
+
+  factory TafsirModel.fromJson(Map<String, dynamic> json) {
+    return TafsirModel(
+      editionId: json['editionId'] as String,
+      editionName: json['editionName'] as String,
+      scholar: json['scholar'] as String?,
+      surahNumber: json['surahNumber'] as int,
+      ayahNumber: json['ayahNumber'] as int,
+      text: json['text'] as String,
+      source:
+          ContentSource.fromJson(json['source'] as Map<String, dynamic>),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         'editionId': editionId,

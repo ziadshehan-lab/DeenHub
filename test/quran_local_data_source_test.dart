@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:deenhub/core/utils/arabic_text.dart';
 import 'package:deenhub/data/datasources/local_quran_data_source.dart';
 
 void main() {
@@ -61,7 +62,7 @@ void main() {
 
   test('normalizeArabic strips diacritics and unifies letter forms', () {
     expect(
-      LocalQuranDataSource.normalizeArabic('قُلْ هُوَ ٱللَّهُ أَحَدٌ'),
+      normalizeArabic('قُلْ هُوَ ٱللَّهُ أَحَدٌ'),
       'قل هو الله احد',
     );
   });

@@ -13,7 +13,15 @@
    "nameArabic": "تفسير السعدي",
    "fullName": "تيسير الكريم الرحمن في تفسير كلام المنان",
    "scholar": "عبد الرحمن بن ناصر السعدي",
-   "available": true
+   "available": true,
+   "localSurahs": [
+    1,
+    112,
+    113,
+    114
+   ],
+   "remoteProvider": "quran.com",
+   "remoteEditionId": null
   },
   {
    "id": "ibn-kathir",
@@ -21,7 +29,10 @@
    "nameArabic": "تفسير ابن كثير",
    "fullName": "تفسير القرآن العظيم",
    "scholar": "إسماعيل بن عمر بن كثير",
-   "available": true
+   "available": true,
+   "localSurahs": [],
+   "remoteProvider": "quran.com",
+   "remoteEditionId": null
   },
   {
    "id": "tabari",
@@ -29,7 +40,10 @@
    "nameArabic": "تفسير الطبري",
    "fullName": "جامع البيان عن تأويل آي القرآن",
    "scholar": "محمد بن جرير الطبري",
-   "available": true
+   "available": true,
+   "localSurahs": [],
+   "remoteProvider": "quran.com",
+   "remoteEditionId": null
   },
   {
    "id": "qurtubi",
@@ -37,7 +51,10 @@
    "nameArabic": "تفسير القرطبي",
    "fullName": "الجامع لأحكام القرآن",
    "scholar": "محمد بن أحمد القرطبي",
-   "available": true
+   "available": true,
+   "localSurahs": [],
+   "remoteProvider": "quran.com",
+   "remoteEditionId": null
   },
   {
    "id": "jalalayn",
@@ -45,7 +62,10 @@
    "nameArabic": "تفسير الجلالين",
    "fullName": "تفسير الجلالين",
    "scholar": "جلال الدين المحلي وجلال الدين السيوطي",
-   "available": false
+   "available": true,
+   "localSurahs": [],
+   "remoteProvider": "alquran.cloud",
+   "remoteEditionId": "ar.jalalayn"
   }
  ]
 }

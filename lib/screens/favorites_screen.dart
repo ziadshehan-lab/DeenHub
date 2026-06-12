@@ -6,12 +6,15 @@ import '../core/routing/app_routes.dart';
 import '../core/theme/app_theme.dart';
 import '../core/utils/arabic_numbers.dart';
 import '../data/repositories/quran_repository.dart';
+import '../data/repositories/tafsir_repository.dart';
 import '../models/quran_models.dart';
+import '../models/tafsir_models.dart';
 import '../providers/favorites_provider.dart';
 import '../widgets/placeholder_content.dart';
 import 'surah_detail_screen.dart';
+import 'tafsir_detail_screen.dart';
 
-/// شاشة المفضلة: تعرض الآيات المفضلة المحفوظة محلياً.
+/// شاشة المفضلة: الآيات ومقاطع التفسير المفضلة المحفوظة محلياً.
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
 
@@ -34,30 +37,140 @@ class FavoritesScreen extends StatelessWidget {
     return positions;
   }
 
+  /// تحويل معرّفات `tafsir:كتاب:س:آ` إلى مواضع مقاطع تفسير مرتبة.
+  List<({String edition, int surah, int ayah})> _tafsirPositions(
+      Set<String> ids) {
+    final positions = <({String edition, int surah, int ayah})>[];
+    for (final id in ids) {
+      final parts = id.split(':');
+      if (parts.length == 4 && parts[0] == 'tafsir') {
+        final surah = int.tryParse(parts[2]);
+        final ayah = int.tryParse(parts[3]);
+        if (surah != null && ayah != null) {
+          positions.add((edition: parts[1], surah: surah, ayah: ayah));
+        }
+      }
+    }
+    positions.sort((a, b) => a.surah != b.surah
+        ? a.surah.compareTo(b.surah)
+        : a.ayah.compareTo(b.ayah));
+    return positions;
+  }
+
   @override
   Widget build(BuildContext context) {
     final favorites = context.watch<FavoritesProvider>();
-    final positions = _ayahPositions(favorites.favoriteIds);
+    final ayahs = _ayahPositions(favorites.favoriteIds);
+    final tafsirs = _tafsirPositions(favorites.favoriteIds);
 
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.favorites)),
-      body: positions.isEmpty
+      body: ayahs.isEmpty && tafsirs.isEmpty
           ? const PlaceholderContent(
               icon: Icons.favorite_border,
               message: AppStrings.noFavoritesYet,
             )
-          : ListView.separated(
+          : ListView(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              itemCount: positions.length,
-              separatorBuilder: (_, _) => const Divider(height: 1),
-              itemBuilder: (context, index) {
-                final position = positions[index];
-                return _FavoriteAyahTile(
-                  surahNumber: position.surah,
-                  ayahNumber: position.ayah,
-                );
-              },
+              children: [
+                if (ayahs.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.favoriteAyahs),
+                  for (final position in ayahs)
+                    _FavoriteAyahTile(
+                      surahNumber: position.surah,
+                      ayahNumber: position.ayah,
+                    ),
+                ],
+                if (tafsirs.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.tafsirFavorites),
+                  for (final position in tafsirs)
+                    _FavoriteTafsirTile(
+                      editionId: position.edition,
+                      surahNumber: position.surah,
+                      ayahNumber: position.ayah,
+                    ),
+                ],
+              ],
             ),
+    );
+  }
+}
+
+class _SectionHeader extends StatelessWidget {
+  const _SectionHeader({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+      child: Text(title, style: Theme.of(context).textTheme.titleMedium),
+    );
+  }
+}
+
+/// مقطع تفسير مفضل: يجلب النص عبر TafsirRepository (من الذاكرة الدائمة
+/// أو المصادر) ويعرض مقتطفاً منه.
+class _FavoriteTafsirTile extends StatelessWidget {
+  const _FavoriteTafsirTile({
+    required this.editionId,
+    required this.surahNumber,
+    required this.ayahNumber,
+  });
+
+  final String editionId;
+  final int surahNumber;
+  final int ayahNumber;
+
+  @override
+  Widget build(BuildContext context) {
+    final reference =
+        '${AppStrings.surahLabel} ${toArabicDigits(surahNumber)}'
+        '، ${AppStrings.ayahLabel} ${toArabicDigits(ayahNumber)}';
+
+    return FutureBuilder<TafsirModel>(
+      future: context.read<TafsirRepository>().getTafsir(
+            editionId: editionId,
+            surahNumber: surahNumber,
+            ayahNumber: ayahNumber,
+          ),
+      builder: (context, snapshot) {
+        final tafsir = snapshot.data;
+        return ListTile(
+          leading: Icon(
+            Icons.auto_stories,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(
+            tafsir?.text ?? (snapshot.hasError ? AppStrings.loadError : '...'),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          subtitle: Text(
+            '${tafsir?.editionName ?? editionId} — $reference',
+            style: TextStyle(color: Theme.of(context).colorScheme.primary),
+          ),
+          trailing: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Theme.of(context).colorScheme.error,
+            ),
+            tooltip: AppStrings.removeFromFavorites,
+            onPressed: () => context
+                .read<FavoritesProvider>()
+                .toggle('tafsir:$editionId:$surahNumber:$ayahNumber'),
+          ),
+          onTap: () => Navigator.of(context).pushNamed(
+            AppRoutes.tafsirDetail,
+            arguments: TafsirDetailArgs(
+              surahNumber: surahNumber,
+              ayahNumber: ayahNumber,
+              initialEditionId: editionId,
+            ),
+          ),
+        );
+      },
     );
   }
 }

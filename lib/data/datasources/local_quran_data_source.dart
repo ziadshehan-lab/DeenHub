@@ -1,3 +1,4 @@
+import '../../core/utils/arabic_text.dart';
 import '../../models/quran_models.dart';
 import '../../services/asset_data_loader.dart';
 import 'quran_data_source.dart';
@@ -99,29 +100,4 @@ class LocalQuranDataSource implements QuranDataSource {
     return results;
   }
 
-  /// تبسيط النص العربي للمقارنة: إزالة التشكيل وعلامات المصحف
-  /// وتوحيد أشكال الألف والهمزة.
-  static String normalizeArabic(String input) {
-    final buffer = StringBuffer();
-    for (final rune in input.runes) {
-      // إزالة التشكيل والعلامات القرآنية (نطاقات يونيكود العربية الممتدة)
-      if ((rune >= 0x064B && rune <= 0x065F) ||
-          rune == 0x0670 ||
-          (rune >= 0x06D6 && rune <= 0x06ED) ||
-          (rune >= 0x08D3 && rune <= 0x08FF) ||
-          rune == 0x0640) {
-        continue;
-      }
-      var ch = String.fromCharCode(rune);
-      ch = switch (ch) {
-        'أ' || 'إ' || 'آ' || 'ٱ' => 'ا',
-        'ى' => 'ي',
-        'ة' => 'ه',
-        'ۥ' || 'ۦ' => '',
-        _ => ch,
-      };
-      buffer.write(ch);
-    }
-    return buffer.toString().trim();
-  }
 }

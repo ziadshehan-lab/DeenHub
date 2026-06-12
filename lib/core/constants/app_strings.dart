@@ -77,4 +77,13 @@ class AppStrings {
   static const String tafsirHint =
       'افتح أي سورة ثم اضغط على آية واختر «عرض التفسير»';
   static const String availableEditions = 'كتب التفسير المعتمدة';
+  static const String searchInTafsirText = 'ابحث داخل نص التفسير...';
+  static const String searchInTafsirCorpus =
+      'ابحث في نصوص التفسير المحفوظة...';
+  static const String tafsirBookmarks = 'إشارات التفسير المرجعية';
+  static const String addTafsirBookmark = 'إضافة إشارة مرجعية';
+  static const String removeTafsirBookmark = 'إزالة الإشارة المرجعية';
+  static const String tafsirFavorites = 'مقاطع التفسير المفضلة';
+  static const String matchesFound = 'نتيجة';
+  static const String noMatchesInText = 'لا توجد مطابقات في النص';
 }

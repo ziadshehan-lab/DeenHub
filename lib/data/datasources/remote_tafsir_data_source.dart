@@ -47,6 +47,17 @@ class RemoteTafsirDataSource implements TafsirDataSource {
   final ApiClient _client;
 
   @override
+  bool supportsEdition(String editionId) =>
+      _remoteIds.containsKey(editionId);
+
+  @override
+  Future<List<TafsirModel>> searchTafsir(String query) {
+    throw const TafsirUnavailableException(
+      'البحث النصي في التفسير غير متاح من Quran.com',
+    );
+  }
+
+  @override
   Future<List<TafsirEditionModel>> fetchEditions() async {
     final json = await _client.getJson('/resources/tafsirs')
         as Map<String, dynamic>;

@@ -12,4 +12,7 @@ abstract class TafsirRepository {
     required int surahNumber,
     required int ayahNumber,
   });
+
+  /// البحث في نصوص التفسير المتاحة (محلياً حالياً).
+  Future<List<TafsirModel>> searchTafsir(String query);
 }

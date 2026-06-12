@@ -6,6 +6,7 @@ import 'core/constants/app_strings.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/app_routes.dart';
 import 'core/theme/app_theme.dart';
+import 'data/datasources/alquran_cloud_tafsir_data_source.dart';
 import 'data/datasources/local_quran_data_source.dart';
 import 'data/datasources/local_tafsir_data_source.dart';
 import 'data/datasources/remote_quran_data_source.dart';
@@ -17,6 +18,8 @@ import 'data/repositories/tafsir_repository_impl.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/quran_provider.dart';
 import 'providers/settings_provider.dart';
+import 'providers/tafsir_provider.dart';
+import 'services/cache_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,10 +56,15 @@ class DeenHubApp extends StatelessWidget {
           create: (_) =>
               tafsirRepository ??
               TafsirRepositoryImpl(
-                remote: RemoteTafsirDataSource(),
+                remotes: [
+                  RemoteTafsirDataSource(),
+                  AlQuranCloudTafsirDataSource(),
+                ],
                 local: LocalTafsirDataSource(),
+                cache: SharedPrefsCacheService(),
               ),
         ),
+        ChangeNotifierProvider(create: (_) => TafsirProvider()..load()),
       ],
       child: Consumer<SettingsProvider>(
         builder: (context, settings, _) {
