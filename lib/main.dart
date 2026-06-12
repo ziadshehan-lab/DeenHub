@@ -38,11 +38,13 @@ import 'providers/hadith_provider.dart';
 import 'providers/library_provider.dart';
 import 'providers/prayer_provider.dart';
 import 'providers/quran_provider.dart';
+import 'providers/search_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/tafsir_provider.dart';
 import 'services/cache_service.dart';
 import 'services/location_service.dart';
 import 'services/prayer_notification_service.dart';
+import 'services/unified_search_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -161,6 +163,20 @@ class DeenHubApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => LibraryProvider(
             repository: context.read<LibraryRepository>(),
+          ),
+        ),
+        Provider<UnifiedSearchService>(
+          create: (context) => UnifiedSearchService(
+            quranRepository: context.read<QuranRepository>(),
+            tafsirRepository: context.read<TafsirRepository>(),
+            hadithRepository: context.read<HadithRepository>(),
+            adhkarRepository: context.read<AdhkarRepository>(),
+            libraryRepository: context.read<LibraryRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SearchProvider(
+            service: context.read<UnifiedSearchService>(),
           ),
         ),
       ],

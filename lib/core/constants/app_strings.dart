@@ -173,4 +173,11 @@ class AppStrings {
   static const String booksCountSuffix = 'كتاباً وموسوعة';
   static const String openSourceNote =
       'يُفتح الكتاب على موقع مصدره الرسمي عبر الرابط أعلاه';
+
+  // البحث الموحد
+  static const String searchEverywhere = 'ابحث في كل أقسام التطبيق...';
+  static const String recentSearches = 'عمليات البحث الأخيرة';
+  static const String clearHistory = 'مسح السجل';
+  static const String allFilter = 'الكل';
+  static const String searchError = 'تعذر إتمام البحث';
 }
