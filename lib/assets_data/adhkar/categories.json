@@ -1,0 +1,89 @@
+{
+ "source": {
+  "sourceName": "حصن المسلم — سعيد بن علي بن وهف القحطاني (الموقع الرسمي)",
+  "authorOrScholar": "سعيد بن علي بن وهف القحطاني",
+  "reference": "hisnmuslim.com/api",
+  "sourceUrl": "https://www.hisnmuslim.com",
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "categories": [
+  {
+   "id": "morning-evening",
+   "title": "أذكار الصباح والمساء",
+   "hisnChapters": [
+    27
+   ],
+   "dhikrCount": 24
+  },
+  {
+   "id": "sleep",
+   "title": "أذكار النوم",
+   "hisnChapters": [
+    28
+   ],
+   "dhikrCount": 13
+  },
+  {
+   "id": "wake",
+   "title": "أذكار الاستيقاظ من النوم",
+   "hisnChapters": [
+    1
+   ],
+   "dhikrCount": 4
+  },
+  {
+   "id": "prayer",
+   "title": "الأذكار بعد السلام من الصلاة",
+   "hisnChapters": [
+    25
+   ],
+   "dhikrCount": 8
+  },
+  {
+   "id": "travel",
+   "title": "أذكار السفر",
+   "hisnChapters": [
+    96,
+    102,
+    105
+   ],
+   "dhikrCount": 3
+  },
+  {
+   "id": "mosque",
+   "title": "أذكار المسجد",
+   "hisnChapters": [
+    12,
+    13,
+    14
+   ],
+   "dhikrCount": 3
+  },
+  {
+   "id": "food",
+   "title": "أذكار الطعام والشراب",
+   "hisnChapters": [
+    69,
+    70,
+    71
+   ],
+   "dhikrCount": 5
+  },
+  {
+   "id": "istighfar",
+   "title": "الاستغفار والتوبة",
+   "hisnChapters": [
+    129
+   ],
+   "dhikrCount": 6
+  },
+  {
+   "id": "tasbih",
+   "title": "فضل التسبيح والتحميد والتهليل والتكبير",
+   "hisnChapters": [
+    130
+   ],
+   "dhikrCount": 12
+  }
+ ]
+}

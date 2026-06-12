@@ -36,7 +36,12 @@ class ApiClient {
         statusCode: response.statusCode,
       );
     }
-    return jsonDecode(utf8.decode(response.bodyBytes));
+    var body = utf8.decode(response.bodyBytes);
+    // بعض الواجهات (مثل hisnmuslim.com) تسبق الاستجابة بعلامة BOM
+    if (body.startsWith('﻿')) {
+      body = body.substring(1);
+    }
+    return jsonDecode(body);
   }
 
   void dispose() => _client.close();

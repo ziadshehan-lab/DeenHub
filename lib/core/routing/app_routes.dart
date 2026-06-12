@@ -16,6 +16,7 @@ class AppRoutes {
   static const String prayerSettings = '/prayer/settings';
   static const String qibla = '/qibla';
   static const String adhkar = '/adhkar';
+  static const String adhkarList = '/adhkar/list';
   static const String tasbih = '/tasbih';
   static const String namesOfAllah = '/names-of-allah';
   static const String library = '/library';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/adhkar_list_screen.dart';
 import '../../screens/adhkar_screen.dart';
 import '../../screens/favorites_screen.dart';
 import '../../screens/hadith_books_screen.dart';
@@ -47,6 +48,8 @@ class AppRouter {
       AppRoutes.prayerSettings => const PrayerSettingsScreen(),
       AppRoutes.qibla => const QiblaScreen(),
       AppRoutes.adhkar => const AdhkarScreen(),
+      AppRoutes.adhkarList =>
+        AdhkarListScreen(args: settings.arguments as AdhkarListArgs?),
       AppRoutes.tasbih => const TasbihScreen(),
       AppRoutes.namesOfAllah => const NamesOfAllahScreen(),
       AppRoutes.library => const LibraryScreen(),

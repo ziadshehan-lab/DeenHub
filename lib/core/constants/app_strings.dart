@@ -141,4 +141,20 @@ class AppStrings {
   static const String locateFirst =
       'حدد موقعك أو مدينتك أولاً من شاشة مواقيت الصلاة';
   static const String openPrayerScreen = 'فتح مواقيت الصلاة';
+
+  // الأذكار وأسماء الله الحسنى
+  static const String searchInAdhkar = 'ابحث في الأذكار...';
+  static const String repeatLabel = 'التكرار';
+  static const String onceLabel = 'مرة واحدة';
+  static const String copyDhikr = 'نسخ الذكر';
+  static const String shareDhikr = 'مشاركة الذكر';
+  static const String dhikrCopied = 'تم نسخ الذكر';
+  static const String favoriteAdhkar = 'الأذكار المفضلة';
+  static const String dhikrCountSuffix = 'ذكراً';
+  static const String searchInNames = 'ابحث في الأسماء الحسنى...';
+  static const String transliterationLabel = 'النطق';
+  static const String meaningLabel = 'المعنى';
+  static const String explanationLabel2 = 'الشرح';
+  static const String favoriteNames = 'الأسماء الحسنى المفضلة';
+  static const String nameNumberLabel = 'الاسم رقم';
 }

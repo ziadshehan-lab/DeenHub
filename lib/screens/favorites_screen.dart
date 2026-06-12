@@ -5,13 +5,16 @@ import '../core/constants/app_strings.dart';
 import '../core/routing/app_routes.dart';
 import '../core/theme/app_theme.dart';
 import '../core/utils/arabic_numbers.dart';
+import '../data/repositories/adhkar_repository.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../data/repositories/quran_repository.dart';
 import '../data/repositories/tafsir_repository.dart';
+import '../models/dhikr.dart';
 import '../models/hadith_models.dart';
 import '../models/quran_models.dart';
 import '../models/tafsir_models.dart';
 import '../providers/favorites_provider.dart';
+import '../widgets/dhikr_card.dart';
 import '../widgets/placeholder_content.dart';
 import 'hadith_detail_screen.dart';
 import 'surah_detail_screen.dart';
@@ -73,16 +76,47 @@ class FavoritesScreen extends StatelessWidget {
     return hadithIds;
   }
 
+  /// معرّفات الأذكار المفضلة `dhikr:معرّف`.
+  List<String> _dhikrIds(Set<String> ids) {
+    final result = <String>[];
+    for (final id in ids) {
+      final parts = id.split(':');
+      if (parts.length == 2 && parts[0] == 'dhikr') result.add(parts[1]);
+    }
+    result.sort();
+    return result;
+  }
+
+  /// أرقام الأسماء الحسنى المفضلة `name:رقم`.
+  List<int> _nameNumbers(Set<String> ids) {
+    final result = <int>[];
+    for (final id in ids) {
+      final parts = id.split(':');
+      if (parts.length == 2 && parts[0] == 'name') {
+        final number = int.tryParse(parts[1]);
+        if (number != null) result.add(number);
+      }
+    }
+    result.sort();
+    return result;
+  }
+
   @override
   Widget build(BuildContext context) {
     final favorites = context.watch<FavoritesProvider>();
     final ayahs = _ayahPositions(favorites.favoriteIds);
     final tafsirs = _tafsirPositions(favorites.favoriteIds);
     final hadiths = _hadithIds(favorites.favoriteIds);
+    final adhkar = _dhikrIds(favorites.favoriteIds);
+    final names = _nameNumbers(favorites.favoriteIds);
 
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.favorites)),
-      body: ayahs.isEmpty && tafsirs.isEmpty && hadiths.isEmpty
+      body: ayahs.isEmpty &&
+              tafsirs.isEmpty &&
+              hadiths.isEmpty &&
+              adhkar.isEmpty &&
+              names.isEmpty
           ? const PlaceholderContent(
               icon: Icons.favorite_border,
               message: AppStrings.noFavoritesYet,
@@ -112,8 +146,81 @@ class FavoritesScreen extends StatelessWidget {
                   for (final hadithId in hadiths)
                     _FavoriteHadithTile(hadithId: hadithId),
                 ],
+                if (adhkar.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.favoriteAdhkar),
+                  for (final dhikrId in adhkar)
+                    _FavoriteDhikrTile(dhikrId: dhikrId),
+                ],
+                if (names.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.favoriteNames),
+                  for (final number in names)
+                    _FavoriteNameTile(number: number),
+                ],
               ],
             ),
+    );
+  }
+}
+
+/// ذكر مفضل — يُعرض ببطاقة الذكر الكاملة بعد جلبه من المستودع.
+class _FavoriteDhikrTile extends StatelessWidget {
+  const _FavoriteDhikrTile({required this.dhikrId});
+
+  final String dhikrId;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<DhikrModel>(
+      future: context.read<AdhkarRepository>().getDhikr(dhikrId),
+      builder: (context, snapshot) {
+        final dhikr = snapshot.data;
+        if (dhikr == null) {
+          return ListTile(
+            leading: const Icon(Icons.self_improvement),
+            title: snapshot.hasError
+                ? const Text(AppStrings.loadError)
+                : const Text('...'),
+          );
+        }
+        return DhikrCard(dhikr: dhikr);
+      },
+    );
+  }
+}
+
+/// اسم من الأسماء الحسنى في المفضلة.
+class _FavoriteNameTile extends StatelessWidget {
+  const _FavoriteNameTile({required this.number});
+
+  final int number;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<AllahNameModel>(
+      future: context.read<AdhkarRepository>().getName(number),
+      builder: (context, snapshot) {
+        final name = snapshot.data;
+        return ListTile(
+          leading: Icon(
+            Icons.star_border,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(name?.name ??
+              (snapshot.hasError ? AppStrings.loadError : '...')),
+          subtitle: name?.meaning == null
+              ? null
+              : Text('${name!.transliteration ?? ''} — ${name.meaning}'),
+          trailing: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Theme.of(context).colorScheme.error,
+            ),
+            tooltip: AppStrings.removeFromFavorites,
+            onPressed: () =>
+                context.read<FavoritesProvider>().toggle('name:$number'),
+          ),
+        );
+      },
     );
   }
 }

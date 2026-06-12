@@ -8,15 +8,19 @@ import 'core/routing/app_routes.dart';
 import 'core/theme/app_theme.dart';
 import 'data/datasources/alquran_cloud_tafsir_data_source.dart';
 import 'data/datasources/dorar_hadith_data_source.dart';
+import 'data/datasources/local_adhkar_data_source.dart';
 import 'data/datasources/local_hadith_data_source.dart';
 import 'data/datasources/local_prayer_cache_data_source.dart';
 import 'data/datasources/local_quran_data_source.dart';
 import 'data/datasources/local_tafsir_data_source.dart';
+import 'data/datasources/remote_adhkar_data_source.dart';
 import 'data/datasources/remote_hadith_data_source.dart';
 import 'data/datasources/remote_prayer_data_source.dart';
 import 'data/datasources/remote_quran_data_source.dart';
 import 'data/datasources/remote_tafsir_data_source.dart';
 import 'data/datasources/sunnah_com_hadith_data_source.dart';
+import 'data/repositories/adhkar_repository.dart';
+import 'data/repositories/adhkar_repository_impl.dart';
 import 'data/repositories/hadith_repository.dart';
 import 'data/repositories/hadith_repository_impl.dart';
 import 'data/repositories/prayer_repository.dart';
@@ -25,6 +29,7 @@ import 'data/repositories/quran_repository.dart';
 import 'data/repositories/quran_repository_impl.dart';
 import 'data/repositories/tafsir_repository.dart';
 import 'data/repositories/tafsir_repository_impl.dart';
+import 'providers/adhkar_provider.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/hadith_provider.dart';
 import 'providers/prayer_provider.dart';
@@ -49,6 +54,7 @@ class DeenHubApp extends StatelessWidget {
     this.prayerRepository,
     this.locationService,
     this.prayerNotificationService,
+    this.adhkarRepository,
   });
 
   /// مستودعات وخدمات بديلة — تُحقن في الاختبارات بدل المصادر الفعلية.
@@ -58,6 +64,7 @@ class DeenHubApp extends StatelessWidget {
   final PrayerRepository? prayerRepository;
   final LocationService? locationService;
   final PrayerNotificationService? prayerNotificationService;
+  final AdhkarRepository? adhkarRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +134,18 @@ class DeenHubApp extends StatelessWidget {
             locationService: locationService ?? GeolocatorLocationService(),
             notificationService: prayerNotificationService,
           )..init(),
+        ),
+        Provider<AdhkarRepository>(
+          create: (_) =>
+              adhkarRepository ??
+              AdhkarRepositoryImpl(
+                local: LocalAdhkarDataSource(),
+                remote: RemoteAdhkarDataSource(),
+              ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              AdhkarProvider(repository: context.read<AdhkarRepository>()),
         ),
       ],
       child: Consumer<SettingsProvider>(

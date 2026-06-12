@@ -1,88 +1,72 @@
 import 'content_source.dart';
 
-/// تصنيف أذكار (أذكار الصباح، أذكار المساء، أذكار النوم...).
-class DhikrCategory {
-  const DhikrCategory({required this.id, required this.nameArabic});
-
-  final String id;
-  final String nameArabic;
-
-  factory DhikrCategory.fromJson(Map<String, dynamic> json) {
-    return DhikrCategory(
-      id: json['id'] as String,
-      nameArabic: json['nameArabic'] as String,
-    );
-  }
-
-  Map<String, dynamic> toJson() => {'id': id, 'nameArabic': nameArabic};
-}
-
-/// ذكر واحد مع عدد مرات التكرار المسنون.
-class Dhikr extends ContentItem {
-  const Dhikr({
+/// تصنيف أذكار (الصباح والمساء، النوم، السفر...).
+class DhikrCategoryModel extends ContentItem {
+  const DhikrCategoryModel({
     required this.id,
-    required this.categoryId,
-    required this.text,
-    required this.repeatCount,
-    this.virtue,
+    required this.title,
+    this.dhikrCount,
     required super.source,
   });
 
   final String id;
-  final String categoryId;
-  final String text;
-  final int repeatCount;
-
-  /// فضل الذكر إن وُجد.
-  final String? virtue;
-
-  factory Dhikr.fromJson(Map<String, dynamic> json) {
-    return Dhikr(
-      id: json['id'] as String,
-      categoryId: json['categoryId'] as String,
-      text: json['text'] as String,
-      repeatCount: json['repeatCount'] as int,
-      virtue: json['virtue'] as String?,
-      source: ContentSource.fromJson(json['source'] as Map<String, dynamic>),
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'categoryId': categoryId,
-        'text': text,
-        'repeatCount': repeatCount,
-        'virtue': virtue,
-        'source': source.toJson(),
-      };
+  final String title;
+  final int? dhikrCount;
 }
 
-/// اسم من أسماء الله الحسنى مع شرحه.
-class AllahName extends ContentItem {
-  const AllahName({
+/// ذكر واحد من حصن المسلم مع عدد التكرار والإسناد.
+class DhikrModel extends ContentItem {
+  const DhikrModel({
+    required this.id,
+    required this.categoryId,
+    required this.text,
+    this.repeat = 1,
+    this.chapterTitle,
+    required super.source,
+  });
+
+  /// معرّف فريد بصيغة `رقم الباب-رقم الذكر` (مثل `27-76`).
+  final String id;
+  final String categoryId;
+  final String text;
+
+  /// عدد مرات التكرار المسنون.
+  final int repeat;
+
+  /// عنوان الباب في الكتاب (للإسناد).
+  final String? chapterTitle;
+
+  String get sourceName => source.sourceName;
+  String? get sourceUrl => source.sourceUrl;
+  String get reference => source.reference;
+
+  /// معرّف الذكر في المفضلة.
+  String get favoriteId => 'dhikr:$id';
+}
+
+/// اسم من أسماء الله الحسنى.
+class AllahNameModel extends ContentItem {
+  const AllahNameModel({
     required this.number,
     required this.name,
+    this.transliteration,
     this.meaning,
+    this.explanation,
     required super.source,
   });
 
   final int number;
   final String name;
+
+  /// النطق بالحروف اللاتينية.
+  final String? transliteration;
+
+  /// المعنى (كما يوفره المصدر — بالإنجليزية حالياً).
   final String? meaning;
 
-  factory AllahName.fromJson(Map<String, dynamic> json) {
-    return AllahName(
-      number: json['number'] as int,
-      name: json['name'] as String,
-      meaning: json['meaning'] as String?,
-      source: ContentSource.fromJson(json['source'] as Map<String, dynamic>),
-    );
-  }
+  /// شرح موجز إن وفّره مصدر معتمد (يبقى فارغاً حتى اعتماد مصدر عربي).
+  final String? explanation;
 
-  Map<String, dynamic> toJson() => {
-        'number': number,
-        'name': name,
-        'meaning': meaning,
-        'source': source.toJson(),
-      };
+  /// معرّف الاسم في المفضلة.
+  String get favoriteId => 'name:$number';
 }

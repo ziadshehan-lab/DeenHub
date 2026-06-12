@@ -52,6 +52,7 @@ flutter:
     - lib/assets_data/tafsir/saadi/
     - lib/assets_data/hadith/
     - lib/assets_data/prayer/
+    - lib/assets_data/adhkar/
 
   # خط أميري — خط عربي محسّن لعرض النص القرآني (رخصة OFL)
   fonts:
