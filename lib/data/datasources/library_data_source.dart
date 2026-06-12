@@ -2,17 +2,32 @@ import '../../models/library_book.dart';
 
 /// واجهة مصدر بيانات المكتبة الإسلامية.
 ///
-/// التطبيقات المستقبلية: HTTP API، ملفات JSON محلية، SQLite، ذاكرة مؤقتة.
+/// التطبيق الحالي: [LocalLibraryDataSource] — فهرس مضمَّن بروابط
+/// موثقة إلى المصادر الرسمية (الشاملة، الدرر، إسلام ويب...) لأن هذه
+/// المصادر لا توفر واجهات JSON عامة؛ الواجهة جاهزة لمصدر بعيد لاحقاً.
 abstract class LibraryDataSource {
-  /// جلب تصنيفات المكتبة (عقيدة، فقه، سيرة...).
-  Future<List<LibraryCategory>> fetchCategories();
+  /// جلب تصنيفات المكتبة الثمانية.
+  Future<List<LibraryCategoryModel>> fetchCategories();
+
+  /// جلب سجل المصادر المعتمدة.
+  Future<List<LibrarySourceModel>> fetchSources();
 
   /// جلب كتب تصنيف محدد.
-  Future<List<LibraryBook>> fetchBooks(String categoryId);
+  Future<List<LibraryBookModel>> fetchBooks(String categoryId);
 
   /// جلب كتاب واحد بمعرّفه.
-  Future<LibraryBook> fetchBook(String bookId);
+  Future<LibraryBookModel> fetchBook(String bookId);
 
-  /// البحث في عناوين الكتب وأوصافها.
-  Future<List<LibraryBook>> searchBooks(String query);
+  /// البحث في العناوين والمؤلفين والأوصاف.
+  Future<List<LibraryBookModel>> searchBooks(String query);
+}
+
+/// يُرمى عندما يكون المحتوى غير متاح من هذا المصدر.
+class LibraryUnavailableException implements Exception {
+  const LibraryUnavailableException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'LibraryUnavailableException: $message';
 }

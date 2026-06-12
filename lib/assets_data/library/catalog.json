@@ -1,0 +1,55 @@
+{
+ "source": {
+  "sourceName": "فهرس مكتبة DeenHub — روابط موثقة إلى المصادر الرسمية",
+  "authorOrScholar": null,
+  "reference": "library catalog v1",
+  "sourceUrl": null,
+  "lastUpdated": "2026-06-12T00:00:00.000"
+ },
+ "categories": [
+  {"id": "tafsir", "title": "التفسير"},
+  {"id": "hadith", "title": "الحديث"},
+  {"id": "aqeedah", "title": "العقيدة"},
+  {"id": "fiqh", "title": "الفقه"},
+  {"id": "seerah", "title": "السيرة النبوية"},
+  {"id": "history", "title": "التاريخ الإسلامي"},
+  {"id": "arabic", "title": "اللغة العربية"},
+  {"id": "tazkiyah", "title": "التزكية والأخلاق"}
+ ],
+ "sources": [
+  {"id": "shamela", "name": "المكتبة الشاملة", "url": "https://shamela.ws", "description": "أكبر مكتبة رقمية مجانية للتراث الإسلامي"},
+  {"id": "dorar", "name": "الدرر السنية", "url": "https://dorar.net", "description": "موسوعات محكمة في العقيدة والحديث والفقه والتاريخ والأخلاق"},
+  {"id": "islamweb", "name": "إسلام ويب", "url": "https://www.islamweb.net/ar/library/", "description": "مكتبة الشبكة الإسلامية التابعة لوزارة الأوقاف القطرية"},
+  {"id": "islamqa", "name": "الإسلام سؤال وجواب", "url": "https://islamqa.info/ar", "description": "موقع الفتاوى بإشراف الشيخ محمد صالح المنجد"},
+  {"id": "binbaz", "name": "موقع الإمام ابن باز", "url": "https://binbaz.org.sa", "description": "الموقع الرسمي لسماحة الشيخ عبد العزيز بن باز رحمه الله"},
+  {"id": "ibnuthaymeen", "name": "موقع الشيخ ابن عثيمين", "url": "https://binothaimeen.net", "description": "الموقع الرسمي لمؤسسة الشيخ محمد بن صالح العثيمين الخيرية"},
+  {"id": "alukah", "name": "شبكة الألوكة", "url": "https://www.alukah.net", "description": "شبكة علمية شرعية أدبية بإشراف د. خالد الجريسي ود. سعد الحميد"},
+  {"id": "azhar", "name": "الأزهر الشريف", "url": "https://www.azhar.eg", "description": "البوابة الرسمية للأزهر الشريف"}
+ ],
+ "books": [
+  {"id": "tafsir-ibn-kathir", "title": "تفسير القرآن العظيم (تفسير ابن كثير)", "author": "إسماعيل بن عمر بن كثير", "categoryId": "tafsir", "sourceId": "shamela", "url": "https://shamela.ws/book/23604", "description": "من أشهر كتب التفسير بالمأثور، يفسر القرآن بالقرآن والسنة وأقوال السلف"},
+  {"id": "tafsir-baydawi", "title": "أنوار التنزيل وأسرار التأويل (تفسير البيضاوي)", "author": "ناصر الدين البيضاوي", "categoryId": "tafsir", "sourceId": "shamela", "url": "https://shamela.ws/book/23588", "description": "تفسير مختصر جامع بين التفسير بالمأثور وبالرأي والإشارات البلاغية"},
+  {"id": "dorar-tafseer", "title": "موسوعة التفسير", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "tafsir", "sourceId": "dorar", "url": "https://dorar.net/tafseer", "description": "موسوعة محكمة في تفسير القرآن الكريم تعتمد أصح الأقوال بأسلوب ميسر"},
+  {"id": "sahih-bukhari", "title": "صحيح البخاري", "author": "محمد بن إسماعيل البخاري", "categoryId": "hadith", "sourceId": "shamela", "url": "https://shamela.ws/book/1681", "description": "أصح كتاب بعد كتاب الله، جمع فيه البخاري الأحاديث الصحيحة المسندة"},
+  {"id": "sahih-muslim", "title": "صحيح مسلم", "author": "مسلم بن الحجاج النيسابوري", "categoryId": "hadith", "sourceId": "shamela", "url": "https://shamela.ws/book/1727", "description": "ثاني أصح كتب الحديث، اشتهر بحسن ترتيبه وجمع طرق الحديث في موضع واحد"},
+  {"id": "sunan-abudawud", "title": "سنن أبي داود", "author": "سليمان بن الأشعث السجستاني", "categoryId": "hadith", "sourceId": "shamela", "url": "https://shamela.ws/book/1726", "description": "من السنن الأربعة، جمع أحاديث الأحكام الفقهية"},
+  {"id": "dorar-hadith", "title": "الموسوعة الحديثية", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "hadith", "sourceId": "dorar", "url": "https://dorar.net/hadith", "description": "محرك بحث في الأحاديث مع بيان درجتها وأحكام المحدثين عليها"},
+  {"id": "dorar-aqeeda", "title": "الموسوعة العقدية", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "aqeedah", "sourceId": "dorar", "url": "https://dorar.net/aqeeda", "description": "موسوعة محكمة في مسائل الاعتقاد على منهج أهل السنة والجماعة"},
+  {"id": "binbaz-books", "title": "مجموع فتاوى ومقالات الشيخ ابن باز", "author": "عبد العزيز بن عبد الله بن باز", "categoryId": "aqeedah", "sourceId": "binbaz", "url": "https://binbaz.org.sa/books", "description": "كتب سماحة الشيخ وفتاواه ومقالاته في العقيدة وغيرها من الموقع الرسمي"},
+  {"id": "uthaymeen-aqeedah", "title": "مؤلفات الشيخ ابن عثيمين في العقيدة", "author": "محمد بن صالح العثيمين", "categoryId": "aqeedah", "sourceId": "ibnuthaymeen", "url": "https://binothaimeen.net", "description": "شروح الشيخ ومؤلفاته العقدية من الموقع الرسمي لمؤسسته الخيرية"},
+  {"id": "dorar-feqhia", "title": "الموسوعة الفقهية", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "fiqh", "sourceId": "dorar", "url": "https://dorar.net/feqhia", "description": "موسوعة محكمة في الفقه الإسلامي بأدلته مع الترجيح"},
+  {"id": "mukhtasar-usul", "title": "المختصر في أصول الفقه", "author": "علي بن محمد ابن اللحام البعلي", "categoryId": "fiqh", "sourceId": "shamela", "url": "https://shamela.ws/book/6308", "description": "متن مختصر جامع لمسائل أصول الفقه على مذهب الإمام أحمد"},
+  {"id": "islamqa-fiqh", "title": "فتاوى الفقه — الإسلام سؤال وجواب", "author": "إشراف الشيخ محمد صالح المنجد", "categoryId": "fiqh", "sourceId": "islamqa", "url": "https://islamqa.info/ar", "description": "فتاوى فقهية مؤصلة بالدليل في أبواب العبادات والمعاملات"},
+  {"id": "marwiyat-sirah", "title": "مرويات السيرة النبوية بين قواعد المحدثين وروايات الأخباريين", "author": "مسفر بن غرم الله الدميني", "categoryId": "seerah", "sourceId": "shamela", "url": "https://shamela.ws/book/11393", "description": "دراسة منهجية في التعامل مع مرويات السيرة النبوية ونقدها"},
+  {"id": "islamweb-seerah", "title": "قسم السيرة النبوية — مكتبة إسلام ويب", "author": "مكتبة الشبكة الإسلامية", "categoryId": "seerah", "sourceId": "islamweb", "url": "https://www.islamweb.net/ar/library/", "description": "كتب السيرة النبوية والشمائل المحمدية في مكتبة إسلام ويب"},
+  {"id": "kamil-tarikh", "title": "الكامل في التاريخ", "author": "علي بن محمد ابن الأثير الجزري", "categoryId": "history", "sourceId": "shamela", "url": "https://shamela.ws/book/21712", "description": "من أمهات كتب التاريخ العام من بدء الخلق إلى سنة ٦٢٨هـ"},
+  {"id": "ansab-ashraf", "title": "أنساب الأشراف", "author": "أحمد بن يحيى البلاذري", "categoryId": "history", "sourceId": "shamela", "url": "https://shamela.ws/book/9773", "description": "موسوعة تاريخية في أنساب العرب وأخبارهم على طريقة النسب"},
+  {"id": "dorar-history", "title": "الموسوعة التاريخية", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "history", "sourceId": "dorar", "url": "https://dorar.net/history", "description": "موسوعة محكمة في التاريخ الإسلامي من البعثة إلى العصر الحديث"},
+  {"id": "alukah-arabic", "title": "المكتبة اللغوية والأدبية — شبكة الألوكة", "author": "شبكة الألوكة", "categoryId": "arabic", "sourceId": "alukah", "url": "https://www.alukah.net", "description": "بحوث وكتب في النحو والصرف والبلاغة والأدب"},
+  {"id": "islamweb-arabic", "title": "قسم اللغة العربية — مكتبة إسلام ويب", "author": "مكتبة الشبكة الإسلامية", "categoryId": "arabic", "sourceId": "islamweb", "url": "https://www.islamweb.net/ar/library/", "description": "كتب اللغة العربية وعلومها في مكتبة إسلام ويب"},
+  {"id": "azhar-portal", "title": "بوابة الأزهر الشريف — العلوم الشرعية والعربية", "author": "الأزهر الشريف", "categoryId": "arabic", "sourceId": "azhar", "url": "https://www.azhar.eg", "description": "البوابة الرسمية للأزهر الشريف ومجمع البحوث الإسلامية"},
+  {"id": "mawiza-muminin", "title": "موعظة المؤمنين من إحياء علوم الدين", "author": "جمال الدين القاسمي", "categoryId": "tazkiyah", "sourceId": "shamela", "url": "https://shamela.ws/book/22842", "description": "تهذيب إحياء علوم الدين للغزالي مع تجريده مما انتُقد عليه"},
+  {"id": "dorar-akhlaq", "title": "موسوعة الأخلاق", "author": "القسم العلمي بمؤسسة الدرر السنية", "categoryId": "tazkiyah", "sourceId": "dorar", "url": "https://dorar.net/alakhlaq", "description": "موسوعة محكمة في الأخلاق الإسلامية المحمودة والمذمومة"},
+  {"id": "islamqa-tazkiyah", "title": "مقالات التزكية والرقائق — الإسلام سؤال وجواب", "author": "إشراف الشيخ محمد صالح المنجد", "categoryId": "tazkiyah", "sourceId": "islamqa", "url": "https://islamqa.info/ar", "description": "مقالات وفتاوى في تزكية النفس والرقائق وأعمال القلوب"}
+ ]
+}

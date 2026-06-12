@@ -7,13 +7,16 @@ import '../core/theme/app_theme.dart';
 import '../core/utils/arabic_numbers.dart';
 import '../data/repositories/adhkar_repository.dart';
 import '../data/repositories/hadith_repository.dart';
+import '../data/repositories/library_repository.dart';
 import '../data/repositories/quran_repository.dart';
 import '../data/repositories/tafsir_repository.dart';
 import '../models/dhikr.dart';
 import '../models/hadith_models.dart';
+import '../models/library_book.dart';
 import '../models/quran_models.dart';
 import '../models/tafsir_models.dart';
 import '../providers/favorites_provider.dart';
+import '../widgets/book_card.dart';
 import '../widgets/dhikr_card.dart';
 import '../widgets/placeholder_content.dart';
 import 'hadith_detail_screen.dart';
@@ -87,6 +90,17 @@ class FavoritesScreen extends StatelessWidget {
     return result;
   }
 
+  /// معرّفات الكتب المفضلة `book:معرّف`.
+  List<String> _bookIds(Set<String> ids) {
+    final result = <String>[];
+    for (final id in ids) {
+      final parts = id.split(':');
+      if (parts.length == 2 && parts[0] == 'book') result.add(parts[1]);
+    }
+    result.sort();
+    return result;
+  }
+
   /// أرقام الأسماء الحسنى المفضلة `name:رقم`.
   List<int> _nameNumbers(Set<String> ids) {
     final result = <int>[];
@@ -109,6 +123,7 @@ class FavoritesScreen extends StatelessWidget {
     final hadiths = _hadithIds(favorites.favoriteIds);
     final adhkar = _dhikrIds(favorites.favoriteIds);
     final names = _nameNumbers(favorites.favoriteIds);
+    final books = _bookIds(favorites.favoriteIds);
 
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.favorites)),
@@ -116,7 +131,8 @@ class FavoritesScreen extends StatelessWidget {
               tafsirs.isEmpty &&
               hadiths.isEmpty &&
               adhkar.isEmpty &&
-              names.isEmpty
+              names.isEmpty &&
+              books.isEmpty
           ? const PlaceholderContent(
               icon: Icons.favorite_border,
               message: AppStrings.noFavoritesYet,
@@ -156,8 +172,39 @@ class FavoritesScreen extends StatelessWidget {
                   for (final number in names)
                     _FavoriteNameTile(number: number),
                 ],
+                if (books.isNotEmpty) ...[
+                  _SectionHeader(title: AppStrings.favoriteBooks),
+                  for (final bookId in books)
+                    _FavoriteBookTile(bookId: bookId),
+                ],
               ],
             ),
+    );
+  }
+}
+
+/// كتاب مفضل — يُعرض ببطاقة الكتاب بعد جلبه من المستودع.
+class _FavoriteBookTile extends StatelessWidget {
+  const _FavoriteBookTile({required this.bookId});
+
+  final String bookId;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<LibraryBookModel>(
+      future: context.read<LibraryRepository>().getBook(bookId),
+      builder: (context, snapshot) {
+        final book = snapshot.data;
+        if (book == null) {
+          return ListTile(
+            leading: const Icon(Icons.menu_book),
+            title: snapshot.hasError
+                ? const Text(AppStrings.loadError)
+                : const Text('...'),
+          );
+        }
+        return BookCard(book: book);
+      },
     );
   }
 }

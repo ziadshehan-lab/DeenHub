@@ -1,13 +1,18 @@
 import '../../models/library_book.dart';
 
-/// واجهة مستودع المكتبة الإسلامية — تنسّق بين مصادر بيانات المكتبة
-/// وتطبّق سياسة التخزين المؤقت.
+/// واجهة مستودع المكتبة الإسلامية.
 abstract class LibraryRepository {
-  Future<List<LibraryCategory>> getCategories();
+  Future<List<LibraryCategoryModel>> getCategories();
 
-  Future<List<LibraryBook>> getBooks(String categoryId);
+  Future<List<LibrarySourceModel>> getSources();
 
-  Future<LibraryBook> getBook(String bookId);
+  Future<List<LibraryBookModel>> getBooks(String categoryId);
 
-  Future<List<LibraryBook>> searchBooks(String query);
+  /// كتب مصدر محدد (الشاملة، الدرر...).
+  Future<List<LibraryBookModel>> getBooksBySource(String sourceId);
+
+  Future<LibraryBookModel> getBook(String bookId);
+
+  /// بحث عربي يتجاهل التشكيل في العناوين والمؤلفين والأوصاف.
+  Future<List<LibraryBookModel>> searchBooks(String query);
 }

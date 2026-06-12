@@ -9,7 +9,10 @@ import '../../screens/hadith_detail_screen.dart';
 import '../../screens/hadith_list_screen.dart';
 import '../../screens/hadith_search_screen.dart';
 import '../../screens/home_screen.dart';
-import '../../screens/library_screen.dart';
+import '../../screens/book_detail_screen.dart';
+import '../../screens/book_list_screen.dart';
+import '../../screens/category_screen.dart';
+import '../../screens/library_home_screen.dart';
 import '../../screens/names_of_allah_screen.dart';
 import '../../screens/prayer_screen.dart';
 import '../../screens/prayer_settings_screen.dart';
@@ -52,7 +55,13 @@ class AppRouter {
         AdhkarListScreen(args: settings.arguments as AdhkarListArgs?),
       AppRoutes.tasbih => const TasbihScreen(),
       AppRoutes.namesOfAllah => const NamesOfAllahScreen(),
-      AppRoutes.library => const LibraryScreen(),
+      AppRoutes.library => const LibraryHomeScreen(),
+      AppRoutes.libraryCategory =>
+        CategoryScreen(args: settings.arguments as CategoryScreenArgs?),
+      AppRoutes.libraryBooks =>
+        BookListScreen(args: settings.arguments as BookListArgs?),
+      AppRoutes.libraryBook =>
+        BookDetailScreen(args: settings.arguments as BookDetailArgs?),
       AppRoutes.search => const SearchScreen(),
       AppRoutes.favorites => const FavoritesScreen(),
       AppRoutes.settings => const SettingsScreen(),

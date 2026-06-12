@@ -20,6 +20,9 @@ class AppRoutes {
   static const String tasbih = '/tasbih';
   static const String namesOfAllah = '/names-of-allah';
   static const String library = '/library';
+  static const String libraryCategory = '/library/category';
+  static const String libraryBooks = '/library/books';
+  static const String libraryBook = '/library/book';
   static const String search = '/search';
   static const String favorites = '/favorites';
   static const String settings = '/settings';

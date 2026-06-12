@@ -157,4 +157,20 @@ class AppStrings {
   static const String explanationLabel2 = 'الشرح';
   static const String favoriteNames = 'الأسماء الحسنى المفضلة';
   static const String nameNumberLabel = 'الاسم رقم';
+
+  // المكتبة الإسلامية
+  static const String searchInLibrary = 'ابحث في فهرس المكتبة...';
+  static const String libraryCategories = 'التصنيفات';
+  static const String librarySources = 'المصادر المعتمدة';
+  static const String authorLabel = 'المؤلف';
+  static const String categoryLabel = 'التصنيف';
+  static const String bookLinkLabel = 'رابط الكتاب';
+  static const String copyBookInfo = 'نسخ بيانات الكتاب';
+  static const String shareBook = 'مشاركة الكتاب';
+  static const String bookInfoCopied = 'تم نسخ بيانات الكتاب';
+  static const String favoriteBooks = 'الكتب المفضلة';
+  static const String continueBrowsing = 'متابعة التصفح';
+  static const String booksCountSuffix = 'كتاباً وموسوعة';
+  static const String openSourceNote =
+      'يُفتح الكتاب على موقع مصدره الرسمي عبر الرابط أعلاه';
 }

@@ -10,6 +10,7 @@ import 'data/datasources/alquran_cloud_tafsir_data_source.dart';
 import 'data/datasources/dorar_hadith_data_source.dart';
 import 'data/datasources/local_adhkar_data_source.dart';
 import 'data/datasources/local_hadith_data_source.dart';
+import 'data/datasources/local_library_data_source.dart';
 import 'data/datasources/local_prayer_cache_data_source.dart';
 import 'data/datasources/local_quran_data_source.dart';
 import 'data/datasources/local_tafsir_data_source.dart';
@@ -23,6 +24,8 @@ import 'data/repositories/adhkar_repository.dart';
 import 'data/repositories/adhkar_repository_impl.dart';
 import 'data/repositories/hadith_repository.dart';
 import 'data/repositories/hadith_repository_impl.dart';
+import 'data/repositories/library_repository.dart';
+import 'data/repositories/library_repository_impl.dart';
 import 'data/repositories/prayer_repository.dart';
 import 'data/repositories/prayer_repository_impl.dart';
 import 'data/repositories/quran_repository.dart';
@@ -32,6 +35,7 @@ import 'data/repositories/tafsir_repository_impl.dart';
 import 'providers/adhkar_provider.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/hadith_provider.dart';
+import 'providers/library_provider.dart';
 import 'providers/prayer_provider.dart';
 import 'providers/quran_provider.dart';
 import 'providers/settings_provider.dart';
@@ -55,6 +59,7 @@ class DeenHubApp extends StatelessWidget {
     this.locationService,
     this.prayerNotificationService,
     this.adhkarRepository,
+    this.libraryRepository,
   });
 
   /// مستودعات وخدمات بديلة — تُحقن في الاختبارات بدل المصادر الفعلية.
@@ -65,6 +70,7 @@ class DeenHubApp extends StatelessWidget {
   final LocationService? locationService;
   final PrayerNotificationService? prayerNotificationService;
   final AdhkarRepository? adhkarRepository;
+  final LibraryRepository? libraryRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +152,16 @@ class DeenHubApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) =>
               AdhkarProvider(repository: context.read<AdhkarRepository>()),
+        ),
+        Provider<LibraryRepository>(
+          create: (_) =>
+              libraryRepository ??
+              LibraryRepositoryImpl(local: LocalLibraryDataSource()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => LibraryProvider(
+            repository: context.read<LibraryRepository>(),
+          ),
         ),
       ],
       child: Consumer<SettingsProvider>(
