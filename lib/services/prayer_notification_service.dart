@@ -4,11 +4,15 @@ import '../models/prayer_times.dart';
 
 /// واجهة خدمة تذكيرات الصلاة المحلية.
 ///
-/// البنية جاهزة: المستودع/المزوّد يستدعي [scheduleForTimes] بعد كل
-/// تحميل ناجح للمواقيت مع مفاتيح التفعيل لكل صلاة. التطبيق الفعلي
-/// عبر flutter_local_notifications يتطلب إعداداً خاصاً لكل منصة
-/// (قنوات أندرويد، أذونات iOS) ويُضاف لاحقاً دون تغيير هذه الواجهة.
+/// التطبيقات:
+/// - [LocalPrayerNotificationService]: إشعارات فعلية على أندرويد و iOS
+///   عبر flutter_local_notifications بجدولة آمنة زمنياً
+/// - [NoopPrayerNotificationService]: للويب والاختبارات
 abstract class PrayerNotificationService {
+  /// طلب أذونات الإشعارات عند الحاجة (أندرويد 13+ و iOS).
+  /// تعيد false إذا رفض المستخدم.
+  Future<bool> ensurePermissions();
+
   /// جدولة تذكيرات اليوم وفق المواقيت ومفاتيح التفعيل
   /// (المفاتيح: fajr, dhuhr, asr, maghrib, isha).
   Future<void> scheduleForTimes(
@@ -20,9 +24,11 @@ abstract class PrayerNotificationService {
   Future<void> cancelAll();
 }
 
-/// تطبيق صوري: يسجل الجدولة في وضع التطوير فقط — يُستبدل بتطبيق
-/// منصات فعلي لاحقاً.
+/// تطبيق صوري: يُستخدم على الويب وفي الاختبارات.
 class NoopPrayerNotificationService implements PrayerNotificationService {
+  @override
+  Future<bool> ensurePermissions() async => true;
+
   @override
   Future<void> scheduleForTimes(
     PrayerTimesModel times,

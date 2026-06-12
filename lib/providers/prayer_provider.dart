@@ -163,18 +163,22 @@ class PrayerProvider extends ChangeNotifier {
     await loadPrayerTimes();
   }
 
-  Future<void> toggleNotification(String prayer) async {
-    _notificationToggles[prayer] = !(_notificationToggles[prayer] ?? false);
+  /// تفعيل/تعطيل تذكير صلاة. عند التفعيل تُطلب أذونات الإشعارات أولاً؛
+  /// تعيد false إذا رُفضت (ولا يتغير المفتاح).
+  Future<bool> toggleNotification(String prayer) async {
+    final enabling = !(_notificationToggles[prayer] ?? false);
+    if (enabling && !await _notifications.ensurePermissions()) {
+      return false;
+    }
+    _notificationToggles[prayer] = enabling;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(
-      '$prefKeyNotifyPrefix$prayer',
-      _notificationToggles[prayer]!,
-    );
+    await prefs.setBool('$prefKeyNotifyPrefix$prayer', enabling);
     final times = _result?.times;
     if (times != null) {
       await _notifications.scheduleForTimes(times, _notificationToggles);
     }
+    return true;
   }
 
   Future<void> loadPrayerTimes() async {

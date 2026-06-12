@@ -129,8 +129,10 @@ class AppStrings {
   static const String prayerSettings = 'إعدادات الصلاة';
   static const String prayerNotifications = 'تذكيرات الصلاة';
   static const String notificationsNote =
-      'تُحفظ تفضيلاتك الآن، وتُفعَّل الإشعارات الفعلية بعد إعداد '
-      'المنصات (أندرويد/iOS) في مرحلة لاحقة.';
+      'يصلك إشعار بصوت عند دخول وقت كل صلاة مفعَّلة، ويُعاد جدولتها '
+      'يومياً وتُحدَّث تلقائياً مع كل تحميل للمواقيت.';
+  static const String notificationsPermissionDenied =
+      'لم يُمنح إذن الإشعارات — فعِّله من إعدادات النظام لتصلك التذكيرات';
   static const String qiblaDegreesLabel = 'درجة من الشمال الحقيقي';
   static const String distanceToKaaba = 'المسافة إلى الكعبة المشرفة';
   static const String kmUnit = 'كم';

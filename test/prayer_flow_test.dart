@@ -9,6 +9,7 @@ import 'package:deenhub/models/content_source.dart';
 import 'package:deenhub/models/prayer_times.dart';
 import 'package:deenhub/providers/prayer_provider.dart';
 import 'package:deenhub/services/location_service.dart';
+import 'package:deenhub/services/prayer_notification_service.dart';
 import 'package:deenhub/services/qibla_service.dart';
 
 PrayerTimesModel _todayTimes() {
@@ -97,6 +98,7 @@ void main() {
     return DeenHubApp(
       prayerRepository: repository ?? FakePrayerRepository(),
       locationService: FakeLocationService(gpsLocation),
+      prayerNotificationService: NoopPrayerNotificationService(),
     );
   }
 

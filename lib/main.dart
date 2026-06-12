@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,7 @@ import 'providers/search_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/tafsir_provider.dart';
 import 'services/cache_service.dart';
+import 'services/local_prayer_notification_service.dart';
 import 'services/location_service.dart';
 import 'services/prayer_notification_service.dart';
 import 'services/unified_search_service.dart';
@@ -140,7 +142,11 @@ class DeenHubApp extends StatelessWidget {
           create: (context) => PrayerProvider(
             repository: context.read<PrayerRepository>(),
             locationService: locationService ?? GeolocatorLocationService(),
-            notificationService: prayerNotificationService,
+            // إشعارات فعلية على أندرويد و iOS؛ صوري على الويب
+            notificationService: prayerNotificationService ??
+                (kIsWeb
+                    ? NoopPrayerNotificationService()
+                    : LocalPrayerNotificationService()),
           )..init(),
         ),
         Provider<AdhkarRepository>(

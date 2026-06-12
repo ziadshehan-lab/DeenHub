@@ -33,6 +33,11 @@ dependencies:
   # تحديد موقع المستخدم لمواقيت الصلاة والقبلة
   geolocator: ^13.0.2
 
+  # تذكيرات الصلاة المحلية (أندرويد و iOS) مع جدولة آمنة زمنياً
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.9.4
+  flutter_timezone: ^2.1.0
+
   intl: any
 
 dev_dependencies:

@@ -64,8 +64,20 @@ class PrayerSettingsScreen extends StatelessWidget {
             SwitchListTile(
               title: Text(AppStrings.prayerNames[prayer] ?? prayer),
               value: provider.notificationToggles[prayer] ?? false,
-              onChanged: (_) =>
-                  context.read<PrayerProvider>().toggleNotification(prayer),
+              onChanged: (_) async {
+                final messenger = ScaffoldMessenger.of(context);
+                final granted = await context
+                    .read<PrayerProvider>()
+                    .toggleNotification(prayer);
+                if (!granted) {
+                  messenger.showSnackBar(
+                    const SnackBar(
+                      content:
+                          Text(AppStrings.notificationsPermissionDenied),
+                    ),
+                  );
+                }
+              },
             ),
         ],
       ),
