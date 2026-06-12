@@ -1,0 +1,40 @@
+name: deenhub
+description: "DeenHub - تطبيق إسلامي شامل (قرآن، تفسير، حديث، أذكار، مواقيت الصلاة، مكتبة إسلامية)."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  provider: ^6.1.2
+
+  # HTTP API ready
+  http: ^1.2.2
+
+  # Local cache ready
+  shared_preferences: ^2.3.3
+
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # JSON assets ready - local Islamic content data files
+  assets:
+    - lib/assets_data/
